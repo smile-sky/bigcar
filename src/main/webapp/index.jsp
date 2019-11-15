@@ -20,7 +20,7 @@
   <small>为您保驾护航</small>
 </blockquote>
 <body >
-<form action="/user/loginHandle" >
+<form action="/admin/login">
 <input type="text" id="username" name="username">
  <input type="text" id="password" name="password">
   <input type="submit"  value="提交">
