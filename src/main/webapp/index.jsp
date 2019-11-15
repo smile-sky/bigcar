@@ -20,9 +20,9 @@
   <small>为您保驾护航</small>
 </blockquote>
 <body >
-<form action="/admin/login">
+<form action="/user/select">
 <input type="text" id="username" name="username">
- <input type="text" id="password" name="password">
+    <input type="text" id="password" name="phone">
   <input type="submit"  value="提交">
 
 </form>

@@ -30,8 +30,8 @@ public class LoginInterceptor implements HandlerInterceptor {
             return true;
 
         // 未登录且不是指定的页面，转发到登录页面
-        //request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request,response);
-        response.sendRedirect(request.getContextPath() + "/error");
+        request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
+        //response.sendRedirect(request.getContextPath() + "/error");
         return false;
     }
 }

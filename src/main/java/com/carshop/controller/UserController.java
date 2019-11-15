@@ -4,10 +4,13 @@ import com.carshop.domain.User;
 import com.carshop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * 快递员控制器
@@ -28,7 +31,6 @@ public class UserController {
 
 
     @RequestMapping("/loginHandle")
-    @ResponseBody
     public String userLogin(String username, String password, HttpServletRequest request) {
         String a;
         User user = us.login(username, password);
@@ -44,7 +46,28 @@ public class UserController {
         return a;
     }
 
+    @RequestMapping("/select")
+    public String selectuser(String username, String phone, Model d) {
+        String a;
+        List<User> users = us.selectuser(username, phone);
+        if (users != null) {
+            d.addAttribute("us", users);
+            a = "success";
+        } else {
+            a = "error";
+        }
+        return a;
+    }
 
+    @RequestMapping("delete")
+    public String deleteUser(Integer id) {
+        String a;
+        Integer b = us.deleteUser(id);
+        if (b != null) {
+            a = "success";
+        } else a = "error";
+        return a;
+    }
 
 
 }
