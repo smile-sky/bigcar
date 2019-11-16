@@ -14,13 +14,13 @@
 <body>
 <table>
 success
-    ${us}
-    <c:forEach items="${us}" var="us">
-        <tr>
-            <td> ${us.username}</td>
-            <td><a href="/user/delete?id=${us.user_id}">详情</a></td>
-        </tr>
-    </c:forEach>
+    <%--${seller}--%>
+    <%--<c:forEach items="${seller}" var="sell">--%>
+        <%--<tr>--%>
+            <%--<td> ${sell.username}</td>--%>
+        <%--</tr>--%>
+    <%--</c:forEach>--%>
+
 </table>
 </body>
 </html>

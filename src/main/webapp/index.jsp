@@ -20,9 +20,9 @@
   <small>为您保驾护航</small>
 </blockquote>
 <body >
-<form action="/user/select">
+<form action="/seller/updateseller">
 <input type="text" id="username" name="username">
-    <input type="text" id="password" name="phone">
+  <input type="text" id="password" name="sellerid">
   <input type="submit"  value="提交">
 
 </form>

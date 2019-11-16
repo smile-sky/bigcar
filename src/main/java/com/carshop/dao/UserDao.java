@@ -14,6 +14,7 @@ public interface UserDao {
 
     List<User> findUser(@Param("username") String username, @Param("phone") String phone);
 
+    //根据ID删除
     Integer deleteUserbyId(Integer id);
 
 
