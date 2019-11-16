@@ -12,5 +12,9 @@ public interface UserDao {
     //@Select("select * from `user` where username = #{arg0} and passwd = #{arg1};")
     User findUserByUnAndPs(@Param("no") String username, @Param("pw") String password);
 
+    List<User> findUser(@Param("username") String username, @Param("phone") String phone);
+
+    Integer deleteUserbyId(Integer id);
+
 
 }
