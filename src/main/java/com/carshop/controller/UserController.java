@@ -69,5 +69,27 @@ public class UserController {
         return a;
     }
 
+    @RequestMapping("/selectbyId")
+    public String selectbyId(Integer id, Model d) {
+        String a;
+        User user = us.finduserbyId(id);
+        d.addAttribute("user", user);
+        if (user != null) {
+            a = "reviseUser";
+        } else a = "error";
+
+        return a;
+    }
+
+    @RequestMapping("update")
+    public String updateuser(User user) {
+        String a;
+        Integer b = us.update(user);
+        if (b != null) {
+            a = "/user/select";
+        } else a = "error";
+        return a;
+    }
+
 
 }

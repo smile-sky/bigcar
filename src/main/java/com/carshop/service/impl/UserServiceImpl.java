@@ -34,5 +34,15 @@ public class UserServiceImpl implements UserService {
         return ud.deleteUserbyId(id);
     }
 
+    @Override
+    public User finduserbyId(Integer id) {
+        return ud.selectbyId(id);
+    }
+
+    @Override
+    public Integer update(User user) {
+        return ud.updateUser(user);
+    }
+
 
 }

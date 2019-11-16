@@ -12,5 +12,9 @@ public interface UserService {
 
     Integer deleteUser(Integer id);
 
+    User finduserbyId(Integer id);
+
+    Integer update(User user);
+
 
 }

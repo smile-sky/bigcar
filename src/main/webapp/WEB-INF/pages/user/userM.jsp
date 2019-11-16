@@ -64,7 +64,7 @@
                         <td>
                             <a class="btn btn-primary" style="margin-right:10px;" href="/user/delete?id=${us.user_id}">删除</a>
 
-                            <a class="btn btn-primary" href="/user/delete?id=${us.user_id}">修改</a>
+                            <a class="btn btn-primary" href="/user/selectbyId?id=${us.user_id}">修改</a>
                         </td>
                     </tr>
                 </c:forEach>

@@ -1,7 +1,4 @@
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 <%--
   Created by IntelliJ IDEA.
   User: 11466
@@ -49,16 +46,16 @@
                 </div>
 
 
-                <button type="submit" class="btn btn-default" style="margin-right:10px;">登录</button>
-                <a href="#" class="btn btn-default">登录</a>
+                <button type="submit" class="btn btn-default" style="margin-right:10px;">注册</button>
+                <a href="login.jsp" class="btn btn-default">返回登录</a>
             </form>
         </div>
     </div>
 </div>
 
 </body>
-<<<<<<< Updated upstream
+
 </html>
-=======
+
 </html>
->>>>>>> Stashed changes
+
