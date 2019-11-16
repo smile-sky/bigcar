@@ -39,7 +39,6 @@ private SellerDao sellerDao;
     }
 
     //修改卖家用户信息
-
     @Override
     public int updateseller(Seller seller) {
         return sellerDao.updateseller(seller);
