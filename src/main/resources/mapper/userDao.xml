@@ -22,9 +22,18 @@
 
         </where>
     </select>
+
     <delete id="deleteUserbyId">
         delete from t_user where user_id=#{id}
     </delete>
+
+    <select id="selectbyId" resultType="com.carshop.domain.User">
+        select * from t_user where user_id=#{id}
+    </select>
+
+    <update id="updateUser" parameterType="com.carshop.domain.User">
+        update t_user set username=#{username},sex=#{sex},phone=#{phone},address=#{address}where user_id=#{user_id}
+    </update>
 
 
 </mapper>

@@ -17,5 +17,9 @@ public interface UserDao {
     //根据ID删除
     Integer deleteUserbyId(Integer id);
 
+    User selectbyId(Integer id);
+
+    Integer updateUser(User user);
+
 
 }
