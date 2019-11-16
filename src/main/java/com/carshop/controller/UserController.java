@@ -52,7 +52,7 @@ public class UserController {
         List<User> users = us.selectuser(username, phone);
         if (users != null) {
             d.addAttribute("us", users);
-            a = "success";
+            a = "user/userM";
         } else {
             a = "error";
         }

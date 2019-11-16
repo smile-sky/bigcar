@@ -1,3 +1,7 @@
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 <%--
   Created by IntelliJ IDEA.
   User: 11466
@@ -26,18 +30,22 @@
                     <label for="password">密码</label><input type="password" class="form-control" id="password"
                                                            name="password"/>
                 </div>
-                <div class="form-group">
-                    <label for="password">电话</label><input type="password" class="form-control" id="password"
-                                                           name="password"/>
-                </div>
+
                 <div class="form-group">
                     <label for="password">性别</label><input type="radio" name="sex" value="1"
                                                            class="ui-icon-folder-collapsed"/>男
                     <input type="radio" name="sex" value="2"/>女
                 </div>
+
                 <div class="form-group">
-                    <label for="password">地址</label><input type="password" class="form-control" id="password"
-                                                           name="password"/>
+                    <label for="password">电话</label><input type="text" class="form-control" id="phone"
+                                                           name="phone"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">地址</label><input type="test" class="form-control" id="address"
+                                                           name="address"/>
+
                 </div>
 
 
@@ -49,4 +57,8 @@
 </div>
 
 </body>
+<<<<<<< Updated upstream
 </html>
+=======
+</html>
+>>>>>>> Stashed changes
