@@ -18,6 +18,7 @@
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-12 column">
+            <img src="timg(1).jpg">
         </div>
     </div>
     <div class="row clearfix">
