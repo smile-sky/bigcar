@@ -16,10 +16,4 @@ public interface UserService {
 
     Integer update(User user);
 
-    /**
-     *用户注册
-     * @param user
-     * @return
-     */
-    int userResgiter(User user);
 }

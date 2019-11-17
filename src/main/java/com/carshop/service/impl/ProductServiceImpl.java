@@ -25,8 +25,8 @@ public class ProductServiceImpl implements ProductService {
 
     //卖家根据商品ID查询
     @Override
-    public Product selectproductid(Integer productid) {
-        return productDao.selectproductid(productid);
+    public Product selectproductid(Integer product_id) {
+        return productDao.selectproductid(product_id);
     }
 
     //商品上架
@@ -36,8 +36,8 @@ public class ProductServiceImpl implements ProductService {
     }
     //商品删除
     @Override
-    public int deleteproduct(int productid) {
-        return productDao.deleteproduct(productid);
+    public int deleteproduct(Integer product_id) {
+        return productDao.deleteproduct(product_id);
     }
     //商品修改
     @Override

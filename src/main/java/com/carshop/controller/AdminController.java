@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AdminController {
     @Autowired
     private AdminService adminService;
-
+    //管理员登录的方法
     @RequestMapping("/login")
     public String login(String username, String password) {
         Admin admin = adminService.login(username, password);

@@ -3,6 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.carshop.dao.SellerDao">
+
+    <!--卖家登录的SQL语句-->
+    <select id="login" resultType="com.carshop.domain.Seller">
+        select * from t_seller where username=#{username} and password = #{password}
+    </select>
+
     <!--查询所有-->
     <select id="queryseller" resultType="com.carshop.domain.Seller">
         select * from t_seller

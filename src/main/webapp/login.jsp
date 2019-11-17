@@ -18,7 +18,7 @@
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-12 column">
-            <form role="form" action="/admin/login">
+            <form role="form" action="/seller/SellerLogin">
                 <div class="form-group">
                     <label for="username">账号</label><input type="test" class="form-control" id="username"
                                                            name="username"/>
@@ -29,16 +29,16 @@
                 </div>
                 <div class="changeDiv">
                     <label>登录类型:</label>
-                    <input id="lei" type="text" list="sexlist">
+                    <input id="lei" name="lei" type="text" list="sexlist">
                     <datalist id="sexlist">
-                        <option>用户</option>
-                        <option>卖家</option>
-                        <option>管理员</option>
+                        <option value="1">用户</option>
+                        <option value="2">卖家</option>
+                        <option value="0">管理员</option>
                     </datalist>
                 </div>
 
                 <button type="submit" class="btn btn-default" style="margin-right:10px;">登录</button>
-                <a href="#" class="btn btn-default">登录</a>
+                <a href="#" class="btn btn-default">取消</a>
             </form>
         </div>
     </div>

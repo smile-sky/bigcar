@@ -13,14 +13,14 @@ public interface ProductService {
     List<Product> selectproduct();
 
     //卖家根据商品ID查询
-    Product selectproductid(Integer productid);
+    Product selectproductid(Integer product_id);
 
 
     //商品上架
     int insertproduct(Product product);
 
     //商品删除
-    int deleteproduct(int productid);
+    int deleteproduct(Integer product_id);
     //商品修改
     int updateproduct(Product product);
 }

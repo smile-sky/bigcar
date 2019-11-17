@@ -7,6 +7,7 @@ public class Seller {
     private String phone;
     private String address;
 
+
     public Seller(){}
 
     public Seller(Integer sellerid, String username, String password, String phone, String address) {
