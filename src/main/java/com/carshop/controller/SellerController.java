@@ -36,7 +36,7 @@ public class SellerController {
         if(lei==0){
             Admin admin=adminService.login(username,password);
             if (admin!=null){
-                a="success";
+                a = "admin";
                 session.setAttribute("admin",admin);
             }else a="error";
             return a;

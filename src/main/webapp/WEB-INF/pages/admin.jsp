@@ -9,16 +9,16 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../css/bootstrap.css" type="text/css">
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
 
 </head>
 <body>
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-12 column">
-            <img src="timg%20(1).jpg">
+            <img src="../../timg%20(1).jpg">
         </div>
     </div>
     <div class="row clearfix">
