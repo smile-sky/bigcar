@@ -12,7 +12,7 @@
             pinpai=#{pinpai}
         </if>
         <if test="type!=null and type!=' '">
-           and type=#{type}
+           or type=#{type}
         </if>
     </where>
 </select>
@@ -20,26 +20,31 @@
     <!--卖家查找上架车辆-->
     <select id="selectproduct" resultType="com.carshop.domain.Product">
         select *  from t_product
+        <where>
+            <if test="check_list!=null and check_list!=' '">
+                check_list=1
+            </if>
+        </where>
     </select>
 
     <!--卖家根据商品ID查找上架车辆-->
     <select id="selectproductid" resultType="com.carshop.domain.Product">
-        select *  from t_product where product_id=#{productid}
+        select *  from t_product where product_id=#{product_id}
     </select>
 
     <!--商品上架-->
     <insert id="insertproduct" parameterType="com.carshop.domain.Product">
-        insert into t_product set type=#{type},price=#{price},pinpai=#{pinpai},color=#{color}
+        insert into t_product set type=#{type},price=#{price},pinpai=#{pinpai},color=#{color},beizhu=#{beizhu}
     </insert>
 
     <!--删除商品信息-->
     <delete id="deleteproduct" parameterType="com.carshop.domain.Product">
-        delete from t_product where product_id=#{id}
+        delete from t_product where product_id=#{product_id}
     </delete>
 
     <!--修改商品信息-->
    <update id="updateproduct" parameterType="com.carshop.domain.Product">
-       update t_product set type=#{type},price=#{price},pinpai=#{pinpai},color=#{color} where product_id=#{productid}
+       update t_product set check_list=#{check_list},type=#{type},price=#{price},pinpai=#{pinpai},color=#{color},beizhu=#{beizhu} where product_id=#{product_id}
    </update>
 
 </mapper>

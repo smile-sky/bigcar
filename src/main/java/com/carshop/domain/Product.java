@@ -1,31 +1,34 @@
 package com.carshop.domain;
 
 public class Product {
-    private Integer productid;
+    private Integer product_id;
     private String type;
     private Integer price;
-    private Integer sellerid;
+    private Integer seller_id;
+    private String beizhu;
     private String pinpai;
     private String color;
-    private String checklist;
+    private String check_list;
 
     public Product(){}
-    public Product(Integer productid, String type, Integer price, Integer sellerid, String pinpai, String color, String checklist) {
-        this.productid = productid;
+
+    public Product(Integer product_id, String type, Integer price, Integer seller_id, String beizhu, String pinpai, String color, String check_list) {
+        this.product_id = product_id;
         this.type = type;
         this.price = price;
-        this.sellerid = sellerid;
+        this.seller_id = seller_id;
+        this.beizhu = beizhu;
         this.pinpai = pinpai;
         this.color = color;
-        this.checklist = checklist;
+        this.check_list = check_list;
     }
 
-    public Integer getProductid() {
-        return productid;
+    public Integer getProduct_id() {
+        return product_id;
     }
 
-    public void setProductid(Integer productid) {
-        this.productid = productid;
+    public void setProduct_id(Integer product_id) {
+        this.product_id = product_id;
     }
 
     public String getType() {
@@ -44,12 +47,20 @@ public class Product {
         this.price = price;
     }
 
-    public Integer getSellerid() {
-        return sellerid;
+    public Integer getSeller_id() {
+        return seller_id;
     }
 
-    public void setSellerid(Integer sellerid) {
-        this.sellerid = sellerid;
+    public void setSeller_id(Integer seller_id) {
+        this.seller_id = seller_id;
+    }
+
+    public String getBeizhu() {
+        return beizhu;
+    }
+
+    public void setBeizhu(String beizhu) {
+        this.beizhu = beizhu;
     }
 
     public String getPinpai() {
@@ -68,24 +79,25 @@ public class Product {
         this.color = color;
     }
 
-    public String getChecklist() {
-        return checklist;
+    public String getCheck_list() {
+        return check_list;
     }
 
-    public void setChecklist(String checklist) {
-        this.checklist = checklist;
+    public void setCheck_list(String check_list) {
+        this.check_list = check_list;
     }
 
     @Override
     public String toString() {
         return "Product{" +
-                "productid=" + productid +
+                "product_id=" + product_id +
                 ", type='" + type + '\'' +
                 ", price=" + price +
-                ", sellerid=" + sellerid +
+                ", seller_id=" + seller_id +
+                ", beizhu='" + beizhu + '\'' +
                 ", pinpai='" + pinpai + '\'' +
                 ", color='" + color + '\'' +
-                ", checklist='" + checklist + '\'' +
+                ", check_list='" + check_list + '\'' +
                 '}';
     }
 }

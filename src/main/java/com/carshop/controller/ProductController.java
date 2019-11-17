@@ -68,9 +68,9 @@ public class ProductController {
 
     //商品删除
     @RequestMapping("/deleteproduct")
-    public String deleteproduct(int id,Model model){
-        int rows=productService.deleteproduct(id);
-        model.addAttribute("ID",id);
+    public String deleteproduct(int product_id,Model model){
+        int rows=productService.deleteproduct(product_id);
+        model.addAttribute("ID",product_id);
         String a;
         if (model!=null){
             a="success";
