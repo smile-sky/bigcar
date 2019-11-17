@@ -36,7 +36,7 @@ public class SellerController {
         if(lei==0){
             Admin admin=adminService.login(username,password);
             if (admin!=null){
-                a = "admin";
+                a="admin";
                 session.setAttribute("admin",admin);
             }else a="error";
             return a;
@@ -63,8 +63,8 @@ public class SellerController {
 
    // 查询所有
     @RequestMapping("/sellerselect")
-    public String select(Model d){
-      List<Seller> sellers=sellerService.queryseller();
+    public String select(String username,String phone,Model d){
+      List<Seller> sellers=sellerService.queryseller(username,phone);
       d.addAttribute("sellerse",sellers);
       String a;
       if (sellers != null) {

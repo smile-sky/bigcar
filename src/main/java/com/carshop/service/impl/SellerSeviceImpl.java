@@ -22,8 +22,8 @@ private SellerDao sellerDao;
 
    //查询所有
     @Override
-    public List<Seller> queryseller() {
-        return sellerDao.queryseller();
+    public List<Seller> queryseller(String username,String phone) {
+        return sellerDao.queryseller(username,phone);
     }
 
     // 按条件（用户名）查询

@@ -10,7 +10,7 @@ public interface SellerService {
      * @param
      * @return
      */
-    List<Seller> queryseller();
+    List<Seller> queryseller(String username,String phone);
 
     /**
      *  按条件（用户名）查询
