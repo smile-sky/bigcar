@@ -5,12 +5,20 @@
 <mapper namespace="com.carshop.dao.SellerDao">
     <!--查询所有-->
     <select id="queryseller" resultType="com.carshop.domain.Seller">
-        select phone,address from t_seller
+        select * from t_seller
+        <where>
+            <if test="username!=null and username!=''">
+                username=#{username}
+            </if>
+            <if test="phone!=null and phone!=''">
+                and phone=#{phone}
+            </if>
+        </where>
     </select>
 
     <!--按条件（用户名）查询-->
     <select id="selectseller" resultType="com.carshop.domain.Seller">
-     select phone,address from t_seller where username=#{username}
+     select * from t_seller where sellerid=#{sellerid}
     </select>
 
       <!--卖家增加信息-->
@@ -20,11 +28,11 @@
 
     <!--//删除卖家用户信息-->
     <delete id="deleteseller" parameterType="com.carshop.domain.Seller">
-        DELETE from t_seller where seller_id=#{sellerid}
+        DELETE from t_seller where sellerid=#{sellerid}
     </delete>
 
    <!--修改卖家信息-->
     <update id="updateseller" parameterType="com.carshop.domain.Seller">
-        update t_seller set username=#{username} where seller_id=#{sellerid}
+        update t_seller set username=#{username},phone=#{phone},address=#{address} where sellerid=#{sellerid}
     </update>
 </mapper>

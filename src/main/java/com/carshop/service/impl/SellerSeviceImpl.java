@@ -16,14 +16,14 @@ private SellerDao sellerDao;
 
    //查询所有
     @Override
-    public List<Seller> queryseller() {
-        return sellerDao.queryseller();
+    public List<Seller> queryseller(String username, String phone) {
+        return sellerDao.queryseller(username, phone);
     }
 
     //    按条件（用户名）查询
     @Override
-    public Seller selectseller(String username) {
-        return sellerDao.selectseller(username);
+    public Seller selectseller(Integer sellerid) {
+        return sellerDao.selectseller(sellerid);
     }
 
     //卖家信息增加
@@ -34,7 +34,7 @@ private SellerDao sellerDao;
 
     //删除卖家用户信息
     @Override
-    public int deleteseller(int sellerid) {
+    public Integer deleteseller(Integer sellerid) {
         return sellerDao.deleteseller(sellerid);
     }
 

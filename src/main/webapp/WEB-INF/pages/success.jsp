@@ -13,7 +13,7 @@
 </head>
 <body>
 <table>
-success
+    success${seller}
     <%--${seller}--%>
     <%--<c:forEach items="${seller}" var="sell">--%>
         <%--<tr>--%>

@@ -35,10 +35,10 @@ public class UserController {
         String a;
         User user = us.login(username, password);
         if (user == null) {
-            a="error";
+            a = "error";
         } else {
             // 用户名和密码正确，登录成功
-            a="success";
+            a = "success";
             // 将用户添加到 session 中
             request.getSession().setAttribute("user", user);
         }
@@ -86,7 +86,7 @@ public class UserController {
         String a;
         Integer b = us.update(user);
         if (b != null) {
-            a = "/user/select";
+            a = "redirect:/user/select";
         } else a = "error";
         return a;
     }

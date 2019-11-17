@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../css/bootstrap.css" type="text/css">
     <script type="text/javascript" src="../../js/jquery.min.js"></script>
     <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
 </head>
 <body>
 <div class="container">
@@ -25,6 +26,15 @@
                 <div class="form-group">
                     <label for="password">密码</label><input type="password" class="form-control" id="password"
                                                            name="password"/>
+                </div>
+                <div class="changeDiv">
+                    <label>登录类型:</label>
+                    <input id="lei" type="text" list="sexlist">
+                    <datalist id="sexlist">
+                        <option>用户</option>
+                        <option>卖家</option>
+                        <option>管理员</option>
+                    </datalist>
                 </div>
 
                 <button type="submit" class="btn btn-default" style="margin-right:10px;">登录</button>

@@ -20,13 +20,13 @@ public class SellerController {
 
    // 查询所有
     @RequestMapping("/sellerselect")
-    public String select(Model d){
-      List<Seller> sellers=sellerService.queryseller();
+    public String select(String username, String phone, Model d) {
+        List<Seller> sellers = sellerService.queryseller(username, phone);
       d.addAttribute("sellerse",sellers);
       String a;
       if (sellers != null) {
 
-          a = "success";
+          a = "seller/sellerM";
       } else {
           a = "error";
       }
@@ -35,18 +35,20 @@ public class SellerController {
 
   // 按条件（用户名）查询
   @RequestMapping("/sellerselect1")
-  public String select1(String username,Model b){
-        Seller seller=sellerService.selectseller(username);
+  public String select1(Integer sellerid, Model b) {
+      Seller seller = sellerService.selectseller(sellerid);
         b.addAttribute("seller",seller);
       String a;
       if (seller != null) {
-          a = "success";
+          a = "reviseSeller";
       } else {
           a = "error";
       }
       return a;
   }
-  @RequestMapping("/insertseller")
+
+
+    @RequestMapping("/insertseller")
   public String insertseller(Seller seller){
    int row=sellerService.insertseller(seller);
    String a;
@@ -60,12 +62,12 @@ public class SellerController {
 
 
   @RequestMapping("/deleteseller")
-  public String deleteseller(int sellerid,Model model){
-        int rows=sellerService.deleteseller(sellerid);
+  public String deleteseller(Integer sellerid, Model model) {
+      Integer rows = sellerService.deleteseller(sellerid);
         model.addAttribute("seller",sellerid);
         String a;
-        if(model!=null){
-            a="success";
+      if (rows != null) {
+          a = "redirect:/seller/sellerselect";
         }else {
             a="error";
         }
@@ -77,7 +79,7 @@ public class SellerController {
         int rows=sellerService.updateseller(seller);
       String a;
       if (seller!= null) {
-          a = "success";
+          a = "redirect:/seller/sellerselect";
       } else {
           a = "error";
       }

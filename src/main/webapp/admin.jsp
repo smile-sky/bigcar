@@ -32,7 +32,7 @@
                     <div id="panel-element-671326" class="panel-collapse in">
                         <div class="panel-body">
 
-                            <a href="index.jsp" target="name">用户管理</a>
+                            <a href="/user/select" target="name">用户管理</a>
                         </div>
 
                     </div>
@@ -44,7 +44,7 @@
                     </div>
                     <div id="panel-element-937291" class="panel-collapse collapse">
                         <div class="panel-body">
-                            <a href="/user/select" target="name">商家管理</a>
+                            <a href="/seller/sellerselect" target="name">商家管理</a>
                         </div>
                     </div>
                 </div>
