@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.carshop.dao.DingdanDao">
+
+    <!-- 查询所有订单-->
+    <select id="queryDingdan" resultType="com.carshop.domain.Dingdan">
+        <![CDATA[
+        select
+            dingdan_id ,
+            user_id ,
+            product_id ,
+            order_time,
+            statu
+        from
+            t_dingdan
+        ]]>
+    </select>
+    <!-- 根据订单ID加载订单信息-->
+    <select id="getDingdan"   resultType="com.carshop.domain.Dingdan">
+        <![CDATA[
+        select
+            dingdan_id ,
+            user_id ,
+            product_id ,
+            order_time,
+            statu
+        from
+            t_dingdan
+        where dingdan_id=#{dingdan_id}
+       ]]>
+    </select>
+    <!-- 添加订单-->
+    <insert id="insertDingdan" parameterType="com.carshop.domain.Dingdan">
+      <![CDATA[
+        insert into t_dingdan (
+            user_id ,
+            product_id ,
+            order_time,
+            statu
+        )
+        values
+        (
+            #{user_id},
+            #{product_id},
+            now(),
+            #{statu}
+         )
+      ]]>
+    </insert>
+    <!-- 根据订单ID删除订单记录-->
+    <delete id="deleteDingdan" parameterType="com.carshop.domain.Dingdan">
+        <![CDATA[
+        delete from t_dingdan where dingdan_id=#{dingdan_id}
+      ]]>
+    </delete>
+    <!-- 根据订单ID修改订单信息-->
+    <update id="updateDingdan" parameterType="com.carshop.domain.Dingdan">
+    <![CDATA[
+        update  t_dingdan
+        set
+                user_id=#{user_id},
+                product_id=#{product_id},
+                order_time=#{order_time},
+                statu=#{statu}
+        where dingdan_id=#{dingdan_id}
+     ]]>
+    </update>
+<!--    &lt;!&ndash; 根据用户名和密码查询账户 &ndash;&gt;
+    <select id="findUserByUnAndPs" resultType="com.carshop.domain.User">
+        select * from  t_user where username = #{no} and password = #{pw};
+    </select>
+
+    &lt;!&ndash; 查找用户 &ndash;&gt;
+    <select id="findUser" resultType="com.carshop.domain.User">
+        select * from t_user
+        <where>
+            <if test="username!=null and username!=''">
+                username=#{username}
+            </if>
+            <if test="phone!=null and phone!=''">
+                and phone=#{phone}
+            </if>
+
+        </where>
+    </select>
+
+    <delete id="deleteUserbyId">
+        delete from t_user where user_id=#{id}
+    </delete>
+
+    <select id="selectbyId" resultType="com.carshop.domain.User">
+        select * from t_user where user_id=#{id}
+    </select>
+
+    <update id="updateUser" parameterType="com.carshop.domain.User">
+        update t_user set username=#{username},sex=#{sex},phone=#{phone},address=#{address}where user_id=#{user_id}
+    </update>
+
+    &lt;!&ndash;用户注册&ndash;&gt;
+    <insert id="userRegister" parameterType="com.carshop.domain.User">
+        insert into t_user(username,password)values(#{username},#{password});
+    </insert>-->
+</mapper>
+
