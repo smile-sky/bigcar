@@ -35,8 +35,8 @@
         update t_user set username=#{username},sex=#{sex},phone=#{phone},address=#{address}where user_id=#{user_id}
     </update>
     <!--用户注册模块-->
-    <insert id="userResgiter" parameterType="String">
-        insert into t_user(username,password)values(#{username},#{password});
+    <insert id="userResgiter" parameterType="com.carshop.domain.User">
+        insert into t_user(username,password,sex,phone,address)values(#{username},#{password},#{sex},#{phone},#{address});
     </insert>
 
 </mapper>

@@ -1,12 +1,12 @@
 package com.carshop.domain;
 
 public class User {
-    private Integer user_id;
-    private String username;
-    private String password;
-    private Integer sex;
-    private String phone;
-    private String address;
+    private Integer user_id;//用户ID
+    private String username;//用户名
+    private String password;//密码
+    private Integer sex;//性别
+    private String phone;//电话
+    private String address;//地址
 
     public Integer getUser_id() {
         return user_id;
