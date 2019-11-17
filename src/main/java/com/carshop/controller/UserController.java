@@ -90,6 +90,14 @@ public class UserController {
         } else a = "error";
         return a;
     }
-
+    @RequestMapping("/userRegister")//用户注册
+    public String userRegister(User user) {
+        int user2=us.userResgiter(user);
+        String a;
+        if (user != null) {
+            a = "success";
+        } else a = "error";
+        return a;
+    }
 
 }

@@ -20,6 +20,11 @@ public interface UserDao {
     User selectbyId(Integer id);
 
     Integer updateUser(User user);
-
+    /**
+     *用户注册
+     * @param user
+     * @return
+     */
+    int userResgiter(User user);
 
 }
