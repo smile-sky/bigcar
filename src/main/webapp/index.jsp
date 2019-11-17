@@ -19,18 +19,12 @@
   <h2>京西快递</h2>
   <small>为您保驾护航</small>
 </blockquote>
-<body >
-<form action="/product/selectproduct">
-  <input type="text" id="username" name="check_list" placeholder="check_list">
-  <input type="text" id="username" name="price" placeholder="price">
-  <input type="text" id="username" name="pinpai" placeholder="pinpai">
-  <input type="text" id="username" name="color" placeholder="color">
-  <%--<input type="text" id="username" name="id">--%>
-  <input type="text" id="username" name="beizhu" placeholder="beizhu">
-  <input type="text" id="password" name="type" placeholder="type">
-  <input type="text" id="id" name="product_id" placeholder="ID">
+<body>
+<form action="">
+  <input type="text" id="username" name="username">
+  <input type="text" id="password" name="password">
+  <input type="text" id="vir" name="vir">
   <input type="submit"  value="提交">
-
 </form>
 </body>
 

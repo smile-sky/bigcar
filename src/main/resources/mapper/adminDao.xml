@@ -7,4 +7,8 @@
     <select id="findUnandPw" resultType="com.carshop.domain.Admin">
         select * from t_admin where username=#{username} and password=#{password}
     </select>
+
+    <select id="">
+        select username,password,vir from
+    </select>
 </mapper>

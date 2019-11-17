@@ -11,7 +11,7 @@ public interface SellerDao {
      * @param
      * @return
      */
-    List<Seller> queryseller(@Param("username") String username, @Param("phone") String phone);
+    List<Seller> queryseller();
 
     /**
      *
@@ -19,22 +19,20 @@ public interface SellerDao {
      * @return
      */
 //    按条件（用户名）查询
-    Seller selectseller(@Param("sellerid") Integer sellerid);
+    Seller selectseller(@Param("username") String username,@Param("phone") String phone);
+
+    //卖家登录
+    Seller login(@Param("username") String username,@Param("password") String password);
 
     //增加卖家用户信息
-  int insertseller(Seller seller);
+    int insertseller(Seller seller);
 
     //删除卖家用户信息
-    Integer deleteseller(Integer sellerid);
+    int deleteseller(int sellerid);
 
     //修改卖家用户信息
- int updateseller(Seller seller);
+    int updateseller(Seller seller);
 
-    //查询上架货品信息
-
-    //上架二手车
-
-    //下架二手车
 
 
 }

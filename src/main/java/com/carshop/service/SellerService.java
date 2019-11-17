@@ -10,14 +10,16 @@ public interface SellerService {
      * @param
      * @return
      */
-    List<Seller> queryseller(String username, String phone);
+    List<Seller> queryseller();
 
     /**
      *  按条件（用户名）查询
      * @param
      * @return
      */
-    Seller selectseller(Integer sellerid);
+    Seller selectseller(String username,String phone);
+    //卖家登录
+    Seller login(String username,String password);
 
     //增加卖家用户信息
     int insertseller(Seller seller);
@@ -26,7 +28,7 @@ public interface SellerService {
     int updateseller(Seller seller);
 
     //删除卖家用户信息
-    Integer deleteseller(Integer sellerid);
+    int deleteseller(int sellerid);
 
     //查询上架货品信息
 
