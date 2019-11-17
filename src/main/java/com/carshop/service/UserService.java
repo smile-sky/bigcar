@@ -15,5 +15,5 @@ public interface UserService {
     User finduserbyId(Integer id);
 
     Integer update(User user);
-
+    int userResgiter(User user);
 }

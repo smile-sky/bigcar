@@ -44,6 +44,8 @@ public class UserServiceImpl implements UserService {
         return ud.updateUser(user);
     }
 
-
-
+    @Override
+    public int userResgiter(User user) {
+        return ud.userResgiter(user);
+    }
 }
