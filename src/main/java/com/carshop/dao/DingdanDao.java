@@ -1,6 +1,7 @@
 package com.carshop.dao;
 
 import com.carshop.domain.Dingdan;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ public interface DingdanDao {
      *
      * @return
      */
-    List<Dingdan> queryDingdan();
+    List<Dingdan> queryDingdan(@Param("product_id") Integer product_id, @Param("user_id") Integer user_id);
 
     /**
      * 根据订单ID加载订单信息

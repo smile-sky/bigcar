@@ -14,13 +14,13 @@ public class ProductServiceImpl implements ProductService {
     private ProductDao productDao;
     //买家按照品牌和型号查找
     @Override
-    public Product queryproduct(String pinpai, String type) {
+    public List<Product> queryproduct(String pinpai, String type) {
         return productDao.queryproduct(pinpai,type);
     }
    //卖家查找所有
     @Override
-    public List<Product> selectproduct() {
-        return productDao.selectproduct();
+    public Product selectproduct(Integer product_id) {
+        return productDao.selectproduct(product_id);
     }
 
     //卖家根据商品ID查询
@@ -43,5 +43,15 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public int updateproduct(Product product) {
         return productDao.updateproduct(product);
+    }
+
+    @Override
+    public Integer stopproduct(Integer product_id) {
+        return productDao.stopproduct(product_id);
+    }
+
+    @Override
+    public Integer startproduct(Integer product_id) {
+        return productDao.startproduct(product_id);
     }
 }

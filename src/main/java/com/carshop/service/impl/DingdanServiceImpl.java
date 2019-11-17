@@ -22,8 +22,8 @@ public class DingdanServiceImpl  implements DingdanService {
      * @return
      */
     @Override
-    public List<Dingdan> queryDingdan() {
-        return dingdanDao.queryDingdan();
+    public List<Dingdan> queryDingdan(Integer product_id, Integer user_id) {
+        return dingdanDao.queryDingdan(product_id, user_id);
     }
 
     /**

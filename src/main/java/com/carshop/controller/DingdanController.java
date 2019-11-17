@@ -21,13 +21,13 @@ public class DingdanController {
      * @return
      */
     @RequestMapping("/queryAllDingdan")
-    public String query(Model model){
-      List<Dingdan> dingdans=dingdanService.queryDingdan();
+    public String query(Integer product_id, Integer user_id, Model model) {
+        List<Dingdan> dingdans = dingdanService.queryDingdan(product_id, user_id);
       model.addAttribute("dingdan",dingdans);
       String a;
       if (dingdans != null) {
 
-          a = "success";
+          a = "dingdan/dingdanM";
       } else {
           a = "error";
       }
@@ -36,17 +36,17 @@ public class DingdanController {
 
     /**
      * 根据订单ID查询订单信息
-     * @param dingdanId
+     * @param dingdan_id
      * @param model
      * @return
      */
   @RequestMapping("/queryByIdDingdan")
-  public String queryOne(Integer dingdanId,Model model){
-        Dingdan dingdan=dingdanService.getDingdan(dingdanId);
+  public String queryOne(Integer dingdan_id, Model model) {
+      Dingdan dingdan = dingdanService.getDingdan(dingdan_id);
         model.addAttribute("dingdan",dingdan);
       String a;
       if (dingdan != null) {
-          a = "success";
+          a = "reviseDingdan";
       } else {
           a = "error";
       }
@@ -97,7 +97,7 @@ public class DingdanController {
         int rows=dingdanService.updateDingdan(dingdan);
       String a;
       if (dingdan!= null) {
-          a = "success";
+          a = "redirect:/dingdan/queryAllDingdan";
       } else {
           a = "error";
       }

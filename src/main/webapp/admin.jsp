@@ -18,7 +18,7 @@
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-12 column">
-            <img src="timg(1).jpg">
+            <img src="timg%20(1).jpg">
         </div>
     </div>
     <div class="row clearfix">
@@ -45,6 +45,28 @@
                     <div id="panel-element-937291" class="panel-collapse collapse">
                         <div class="panel-body">
                             <a href="/seller/sellerselect" target="name">商家管理</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-964009"
+                           href="#panel-element-937292">商品管理</a>
+                    </div>
+                    <div id="panel-element-937292" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <a href="/product/queryproduct" target="name">商品管理</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-964009"
+                           href="#panel-element-937293">订单管理</a>
+                    </div>
+                    <div id="panel-element-937293" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <a href="/dingdan/queryAllDingdan" target="name">订单管理</a>
                         </div>
                     </div>
                 </div>

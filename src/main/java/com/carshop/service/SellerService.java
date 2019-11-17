@@ -17,7 +17,7 @@ public interface SellerService {
      * @param
      * @return
      */
-    Seller selectseller(String username,String phone);
+    Seller selectseller(Integer sellerid);
     //卖家登录
     Seller login(String username,String password);
 

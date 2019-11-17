@@ -19,35 +19,25 @@ public class ProductController {
     //（买家）商品按商品品牌跟型号查询
     @RequestMapping("/queryproduct")
     public String queryproduct(String pinpai, String type, Model model){
-       Product product=productService.queryproduct(pinpai,type);
-       model.addAttribute("product",pinpai);
+        List<Product> product = productService.queryproduct(pinpai, type);
+        model.addAttribute("product", product);
        String a;
        if (product!=null){
-           a="success";
+           a = "Product/productM";
        }else a="error";
        return a;
     }
 
-    //（卖家查询）商家查询所有
-    @RequestMapping("/selectproduct")
-    public String selectproduct(Model model){
-        List<Product> product=productService.selectproduct();
-        model.addAttribute("seller",product);
-        String a;
-        if (product!=null){
-            a="success";
-        }
-        else a="error";
-        return a;
-    }
+
 
     //卖家根据商品ID查询
     @RequestMapping("/selectproductid")
-    public String selectproductid(Integer productid){
-        Product rows=productService.selectproductid(productid);
+    public String selectproductid(Integer product_id, Model d) {
+        Product rows = productService.selectproductid(product_id);
         String a;
         if (rows!=null){
-            a="success";
+            d.addAttribute("product", rows);
+            a = "reviseProduct";
         }
         else a="error";
         return a;
@@ -70,6 +60,8 @@ public class ProductController {
     @RequestMapping("/deleteproduct")
     public String deleteproduct(int product_id,Model model){
         int rows=productService.deleteproduct(product_id);
+
+
         model.addAttribute("ID",product_id);
         String a;
         if (model!=null){
@@ -86,10 +78,31 @@ public class ProductController {
    int rows=productService.updateproduct(product);
         String a;
         if (product!=null){
-            a="success";
+            a = "redirect:/product/queryproduct";
         }
         else a="error";
         return a;
     }
+
+    @RequestMapping("/stopproduct")
+    public String stopprotuct(Integer product_id) {
+        Integer rows = productService.stopproduct(product_id);
+        String a;
+        if (rows != null) {
+            a = "redirect:/product/queryproduct";
+        } else a = "error";
+        return a;
+    }
+
+    @RequestMapping("/startproduct")
+    public String startprotuct(Integer product_id) {
+        Integer rows = productService.startproduct(product_id);
+        String a;
+        if (rows != null) {
+            a = "redirect:/product/queryproduct";
+        } else a = "error";
+        return a;
+    }
+
 
 }

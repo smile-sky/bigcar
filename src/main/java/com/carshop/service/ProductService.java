@@ -7,10 +7,10 @@ import java.util.List;
 public interface ProductService {
 
     //（买家）商品按商品品牌跟型号查询
-    Product queryproduct(String pinpai, String type);
+    List<Product> queryproduct(String pinpai, String type);
 
     //（卖家查询）商家查所有
-    List<Product> selectproduct();
+    Product selectproduct(Integer product_id);
 
     //卖家根据商品ID查询
     Product selectproductid(Integer product_id);
@@ -23,4 +23,10 @@ public interface ProductService {
     int deleteproduct(Integer product_id);
     //商品修改
     int updateproduct(Product product);
+
+    //禁用启用
+    Integer stopproduct(Integer product_id);
+
+    Integer startproduct(Integer product_id);
+
 }

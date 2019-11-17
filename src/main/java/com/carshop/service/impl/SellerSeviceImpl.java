@@ -28,8 +28,8 @@ private SellerDao sellerDao;
 
     // 按条件（用户名）查询
     @Override
-    public Seller selectseller(String username,String phone) {
-        return sellerDao.selectseller(username,phone);
+    public Seller selectseller(Integer sellerid) {
+        return sellerDao.selectseller(sellerid);
     }
 
     //卖家信息增加

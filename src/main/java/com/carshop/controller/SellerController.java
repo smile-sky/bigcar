@@ -68,7 +68,7 @@ public class SellerController {
       d.addAttribute("sellerse",sellers);
       String a;
       if (sellers != null) {
-          a = "success";
+          a = "seller/sellerM";
       } else {
           a = "error";
       }
@@ -77,12 +77,12 @@ public class SellerController {
 
   // 按条件（用户名）查询
   @RequestMapping("/sellerselect1")
-  public String select1(String username,String phone,HttpServletRequest session){
-      Seller seller = sellerService.selectseller(username,phone);
+  public String select1(Integer sellerid, Model d) {
+      Seller seller = sellerService.selectseller(sellerid);
       String a;
       if (seller != null) {
-          a = "success";
-          session.getSession().setAttribute("seller", seller);
+          a = "reviseSeller";
+          d.addAttribute("seller", seller);
       } else {
           a = "error";
       }
@@ -107,7 +107,7 @@ public class SellerController {
         model.addAttribute("seller",sellerid);
         String a;
         if(model!=null){
-            a="success";
+            a = "redirect:/seller/sellerselect";
 
         }else {
             a="error";
@@ -120,7 +120,7 @@ public class SellerController {
         int rows=sellerService.updateseller(seller);
       String a;
       if (seller!= null) {
-          a = "success";
+          a = "redirect:/seller/sellerselect";
       } else {
           a = "error";
       }

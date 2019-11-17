@@ -7,7 +7,7 @@
 
     <!-- 查询所有订单-->
     <select id="queryDingdan" resultType="com.carshop.domain.Dingdan">
-        <![CDATA[
+
         select
             dingdan_id ,
             user_id ,
@@ -16,7 +16,15 @@
             statu
         from
             t_dingdan
-        ]]>
+
+        <where>
+            <if test="product_id!=null and product_id!=''">
+                product_id=#{product_id}
+            </if>
+            <if test="user_id!=null and user_id!=''">
+                user_id=#{user_id}
+            </if>
+        </where>
     </select>
     <!-- 根据订单ID加载订单信息-->
     <select id="getDingdan"   resultType="com.carshop.domain.Dingdan">
@@ -61,9 +69,7 @@
     <![CDATA[
         update  t_dingdan
         set
-                user_id=#{user_id},
-                product_id=#{product_id},
-                order_time=#{order_time},
+
                 statu=#{statu}
         where dingdan_id=#{dingdan_id}
      ]]>
