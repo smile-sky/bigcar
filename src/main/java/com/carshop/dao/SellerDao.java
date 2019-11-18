@@ -11,7 +11,7 @@ public interface SellerDao {
      * @param
      * @return
      */
-    List<Seller> queryseller();
+    List<Seller> queryseller(@Param("username") String username,@Param("phone") String phone);
 
     /**
      *
