@@ -2,9 +2,11 @@ package com.carshop.controller;
 
 import com.carshop.dao.SellerDao;
 import com.carshop.domain.Admin;
+import com.carshop.domain.Product;
 import com.carshop.domain.Seller;
 import com.carshop.domain.User;
 import com.carshop.service.AdminService;
+import com.carshop.service.ProductService;
 import com.carshop.service.SellerService;
 import com.carshop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -29,9 +32,12 @@ public class SellerController {
     @Autowired
     private AdminService adminService;
 
+    @Autowired
+    private ProductService productService;
+
     //卖家登录的方法
     @RequestMapping("/SellerLogin")
-    public String login(String username, String password,Integer lei, HttpServletRequest session) {
+    public String login(String username, String password, Integer lei, HttpSession session, Model model) {
         String a;
         if(lei==0){
             Admin admin=adminService.login(username,password);
@@ -44,9 +50,18 @@ public class SellerController {
         if(lei==1){
             User user=userService.login(username,password);
             if (user!=null){
-                a="success";
-                session.setAttribute("user",user);
-            }else a="error";
+                session.setAttribute("user", user);
+                List<Product> product = productService.selectall();
+
+                model.addAttribute("product", product);
+
+                if (product != null) {
+                    a = "bigcar";
+                } else a = "error";
+
+            } else {
+                a = "error";
+            }
             return a;
         }
         if(lei==2){

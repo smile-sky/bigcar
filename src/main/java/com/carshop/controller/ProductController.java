@@ -2,6 +2,7 @@ package com.carshop.controller;
 
 import com.carshop.dao.ProductDao;
 import com.carshop.domain.Product;
+import com.carshop.domain.User;
 import com.carshop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +17,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    //（买家）商品按商品品牌跟型号查询
+    //（卖家）商品按商品品牌跟型号查询
     @RequestMapping("/queryproduct")
     public String queryproduct(String pinpai, String type, Model model){
         List<Product> product = productService.queryproduct(pinpai, type);
@@ -26,6 +27,21 @@ public class ProductController {
            a = "Product/productM";
        }else a="error";
        return a;
+    }
+
+
+    //（买家）商品按商品品牌跟型号查询
+    @RequestMapping("/userqueryproduct")
+    public String userqueryproduct(String pinpai, String type, Model model) {
+        List<Product> product = productService.queryproduct(pinpai, type);
+
+        model.addAttribute("product", product);
+
+        String a = null;
+        if (product != null) {
+            a = "bigcar";
+        } else a = "error";
+        return a;
     }
 
 
@@ -40,6 +56,18 @@ public class ProductController {
             a = "reviseProduct";
         }
         else a="error";
+        return a;
+    }
+
+    //买家根据商品ID查询
+    @RequestMapping("/selectproductid1")
+    public String selectproductid1(Integer product_id, Model d) {
+        Product rows = productService.selectproductid(product_id);
+        String a;
+        if (rows != null) {
+            d.addAttribute("product", rows);
+            a = "message";
+        } else a = "error";
         return a;
     }
 

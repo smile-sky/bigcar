@@ -28,9 +28,7 @@
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>
-                    <th>
-                        用户ID
-                    </th>
+
                     <th>
                         商品ID
                     </th>
@@ -51,9 +49,7 @@
 
 
                     <tr>
-                        <td>
-                                ${dingdan.user_id}
-                        </td>
+
                         <td>
                                 ${dingdan.product_id}
                         </td>
@@ -61,7 +57,7 @@
                                 ${dingdan.order_time}
                         </td>
                         <td>
-                                ${dingdan.statu}
+                                ${dingdan.statu==0?"运输中":"已到货"}
                         </td>
 
 
@@ -69,11 +65,7 @@
 
 
                             <a class="btn btn-primary"
-                               href="/dingdan/queryByIdDingdan?dingdan_id=${dingdan.dingdan_id}">修改</a>
-                            <a class="btn btn-primary"
-                               href="/dingdan/deleteDingdan?dingdan_id=${dingdan.product_id}">删除</a>
-                            <a class="btn btn-primary"
-                               href="/product/startproduct?product_id=${dingdan.product_id}">已到货</a>
+                               href="/dingdan/updateDingdan?dingdan_id=${dingdan.dingdan_id}">已到货</a>
                         </td>
                     </tr>
                 </c:forEach>

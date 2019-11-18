@@ -12,6 +12,8 @@ public interface ProductService {
     //（卖家查询）商家查所有
     Product selectproduct(Integer product_id);
 
+    List<Product> selectall();
+
     //卖家根据商品ID查询
     Product selectproductid(Integer product_id);
 

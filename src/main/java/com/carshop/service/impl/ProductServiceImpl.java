@@ -23,6 +23,11 @@ public class ProductServiceImpl implements ProductService {
         return productDao.selectproduct(product_id);
     }
 
+    @Override
+    public List<Product> selectall() {
+        return productDao.selectall();
+    }
+
     //卖家根据商品ID查询
     @Override
     public Product selectproductid(Integer product_id) {

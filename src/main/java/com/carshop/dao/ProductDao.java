@@ -28,4 +28,6 @@ public interface ProductDao {
 
     //禁用
     Integer stopproduct(Integer product_id);
+
+    List<Product> selectall();
 }

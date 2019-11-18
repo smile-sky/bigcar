@@ -1,11 +1,16 @@
 package com.carshop.controller;
 
 import com.carshop.domain.Dingdan;
+import com.carshop.domain.User;
 import com.carshop.service.DingdanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -27,12 +32,13 @@ public class DingdanController {
       String a;
       if (dingdans != null) {
 
-          a = "dingdan/dingdanM";
+          a = "dingdan/dingdanU";
       } else {
           a = "error";
       }
       return a;
   }
+
 
     /**
      * 根据订单ID查询订单信息
@@ -53,16 +59,22 @@ public class DingdanController {
       return a;
   }
 
+
     /**
      *
      * 添加订单
      * @return
      */
   @RequestMapping("/insertDingdan")
-  public String insertDing(Dingdan dingdan){
-   int row=dingdanService.insertDingdan(dingdan);
+  public String insertDing(Integer product_id, HttpSession session) {
+
+      User user = (User) session.getAttribute("user");
+      Dingdan dingdan = new Dingdan();
+      dingdan.setUser_id(user.getUser_id());
+      dingdan.setProduct_id(product_id);
+      Integer row = dingdanService.insertDingdan(dingdan);
    String a;
-      if (dingdan!= null) {
+      if (row != null) {
           a = "success";
       } else {
           a = "error";
@@ -93,10 +105,10 @@ public class DingdanController {
      * @return
      */
   @RequestMapping("/updateDingdan")
-  public String updateDingdan(Dingdan dingdan){
-        int rows=dingdanService.updateDingdan(dingdan);
+  public String updateDingdan(Integer dingdan_id) {
+      Integer rows = dingdanService.updateDingdan(dingdan_id);
       String a;
-      if (dingdan!= null) {
+      if (rows != null) {
           a = "redirect:/dingdan/queryAllDingdan";
       } else {
           a = "error";

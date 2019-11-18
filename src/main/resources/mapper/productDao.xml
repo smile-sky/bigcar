@@ -6,7 +6,7 @@
 
     <!--买家根据类型和品牌查找车辆-->
 <select id="queryproduct" resultType="com.carshop.domain.Product">
-    select price,type,pinpai,color,check_list,product_id from t_product
+    select beizhu,price,type,pinpai,color,check_list,product_id from t_product
     <where>
         <if test="pinpai!=null and pinpai!=''">
             pinpai=#{pinpai}
@@ -16,6 +16,10 @@
         </if>
     </where>
 </select>
+
+    <select id="selectall" resultType="com.carshop.domain.Product">
+        select *from t_product
+    </select>
 
     <!--卖家查找上架车辆-->
     <select id="selectproduct" resultType="com.carshop.domain.Product">

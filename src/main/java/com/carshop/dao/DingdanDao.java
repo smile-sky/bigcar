@@ -30,7 +30,7 @@ public interface DingdanDao {
      * @param dingdan
      * @return
      */
-    int insertDingdan(Dingdan dingdan);
+    Integer insertDingdan(Dingdan dingdan);
 
     /**
      * 根据订单ID删除订单记录
@@ -41,9 +41,9 @@ public interface DingdanDao {
     int deleteDingdan(int dingdanId);
 
     /**修改订单
-     * @param dingdan
+     * @param dingdan_id
      * @return
      */
-    int updateDingdan(Dingdan dingdan);
+    Integer updateDingdan(Integer dingdan_id);
 
 }

@@ -42,7 +42,7 @@ public class DingdanServiceImpl  implements DingdanService {
      * @return
      */
     @Override
-    public int insertDingdan(Dingdan dingdan) {
+    public Integer insertDingdan(Dingdan dingdan) {
         return dingdanDao.insertDingdan(dingdan);
     }
 
@@ -58,11 +58,11 @@ public class DingdanServiceImpl  implements DingdanService {
 
     /**
      * 更新订单信息
-     * @param dingdan
+     * @param dingdan_id
      * @return
      */
     @Override
-    public int updateDingdan(Dingdan dingdan) {
-        return dingdanDao.updateDingdan(dingdan);
+    public Integer updateDingdan(Integer dingdan_id) {
+        return dingdanDao.updateDingdan(dingdan_id);
     }
 }

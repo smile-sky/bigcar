@@ -54,7 +54,7 @@
             #{user_id},
             #{product_id},
             now(),
-            #{statu}
+            0
          )
       ]]>
     </insert>
@@ -65,49 +65,51 @@
       ]]>
     </delete>
     <!-- 根据订单ID修改订单信息-->
-    <update id="updateDingdan" parameterType="com.carshop.domain.Dingdan">
+    <update id="updateDingdan">
     <![CDATA[
         update  t_dingdan
         set
 
-                statu=#{statu}
+                statu=1
         where dingdan_id=#{dingdan_id}
      ]]>
     </update>
-<!--    &lt;!&ndash; 根据用户名和密码查询账户 &ndash;&gt;
-    <select id="findUserByUnAndPs" resultType="com.carshop.domain.User">
-        select * from  t_user where username = #{no} and password = #{pw};
-    </select>
 
-    &lt;!&ndash; 查找用户 &ndash;&gt;
-    <select id="findUser" resultType="com.carshop.domain.User">
-        select * from t_user
-        <where>
-            <if test="username!=null and username!=''">
-                username=#{username}
-            </if>
-            <if test="phone!=null and phone!=''">
-                and phone=#{phone}
-            </if>
 
-        </where>
-    </select>
+    <!--    &lt;!&ndash; 根据用户名和密码查询账户 &ndash;&gt;
+        <select id="findUserByUnAndPs" resultType="com.carshop.domain.User">
+            select * from  t_user where username = #{no} and password = #{pw};
+        </select>
 
-    <delete id="deleteUserbyId">
-        delete from t_user where user_id=#{id}
-    </delete>
+        &lt;!&ndash; 查找用户 &ndash;&gt;
+        <select id="findUser" resultType="com.carshop.domain.User">
+            select * from t_user
+            <where>
+                <if test="username!=null and username!=''">
+                    username=#{username}
+                </if>
+                <if test="phone!=null and phone!=''">
+                    and phone=#{phone}
+                </if>
 
-    <select id="selectbyId" resultType="com.carshop.domain.User">
-        select * from t_user where user_id=#{id}
-    </select>
+            </where>
+        </select>
 
-    <update id="updateUser" parameterType="com.carshop.domain.User">
-        update t_user set username=#{username},sex=#{sex},phone=#{phone},address=#{address}where user_id=#{user_id}
-    </update>
+        <delete id="deleteUserbyId">
+            delete from t_user where user_id=#{id}
+        </delete>
 
-    &lt;!&ndash;用户注册&ndash;&gt;
-    <insert id="userRegister" parameterType="com.carshop.domain.User">
-        insert into t_user(username,password)values(#{username},#{password});
-    </insert>-->
+        <select id="selectbyId" resultType="com.carshop.domain.User">
+            select * from t_user where user_id=#{id}
+        </select>
+
+        <update id="updateUser" parameterType="com.carshop.domain.User">
+            update t_user set username=#{username},sex=#{sex},phone=#{phone},address=#{address}where user_id=#{user_id}
+        </update>
+
+        &lt;!&ndash;用户注册&ndash;&gt;
+        <insert id="userRegister" parameterType="com.carshop.domain.User">
+            insert into t_user(username,password)values(#{username},#{password});
+        </insert>-->
 </mapper>
 
