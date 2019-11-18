@@ -92,7 +92,7 @@ public class UserController {
         int user2=us.userResgiter(user);
         String a;
         if (user != null) {
-            a = "success";
+            a = "../../login";
         } else a = "error";
         return a;
     }

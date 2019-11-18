@@ -39,7 +39,28 @@
 
                 <button type="submit" class="btn btn-default" style="margin-right:10px;">登录</button>
                 <a href="#" class="btn btn-default">取消</a>
+
+
             </form>
+
+
+            <div class="btn-group">
+                <button class="btn btn-default">注册账号</button>
+                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="userRegister.jsp">买家注册</a>
+                    </li>
+
+                    <li class="divider">
+                    </li>
+                    <li>
+                        <a href="sellerRegister.jsp">卖家注册</a>
+                    </li>
+                </ul>
+            </div>
+
         </div>
     </div>
 </div>

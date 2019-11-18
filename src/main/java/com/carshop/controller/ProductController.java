@@ -1,9 +1,9 @@
 package com.carshop.controller;
 
-import com.carshop.dao.ProductDao;
 import com.carshop.domain.Product;
-import com.carshop.domain.User;
+import com.carshop.domain.Tell;
 import com.carshop.service.ProductService;
+import com.carshop.service.TellService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +16,9 @@ import java.util.List;
 public class ProductController {
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    private TellService tellService;
 
     //（卖家）商品按商品品牌跟型号查询
     @RequestMapping("/queryproduct")
@@ -44,6 +47,12 @@ public class ProductController {
         return a;
     }
 
+    @RequestMapping("pinglun")
+    public String pinglun(Integer product_id, Model d) {
+        d.addAttribute("product_id", product_id);
+        return "tell/addtell";
+    }
+
 
 
     //卖家根据商品ID查询
@@ -63,9 +72,11 @@ public class ProductController {
     @RequestMapping("/selectproductid1")
     public String selectproductid1(Integer product_id, Model d) {
         Product rows = productService.selectproductid(product_id);
+        List<Tell> tells = tellService.selectcar(product_id);
         String a;
         if (rows != null) {
             d.addAttribute("product", rows);
+            d.addAttribute("tell", tells);
             a = "message";
         } else a = "error";
         return a;

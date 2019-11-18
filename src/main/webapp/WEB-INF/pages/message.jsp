@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 11466
@@ -33,7 +34,7 @@
                                     </div>
                                     <div class="panel-body">
                                         品牌：${product.pinpai}
-                                        ${user}
+
                                     </div>
                                     <div class="panel-body">
                                         型号：${product.type}
@@ -50,7 +51,8 @@
                             <div class="col-md-2 column">
                                 <a type="submit" class="btn btn-block btn-lg btn-warning"
                                    href="/dingdan/insertDingdan?product_id=${product.product_id}">购买</a>
-                                <button type="button" class="btn btn-block btn-lg btn-success">收藏</button>
+                                <a type="submit" class="btn btn-block btn-lg btn-success"
+                                   href="/collect/insertCollect?product_id=${product.product_id}">收藏</a>
                             </div>
                         </div>
                     </div>
@@ -61,12 +63,14 @@
                     <h3>
                         评论
                     </h3>
-                    <p>
-                        <strong>Git</strong> 是一个分布式的版本控制系统，最初由 <strong>Linus Torvalds</strong>
-                        编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在
-                        <small>Ruby</small>
-                        社区中。
-                    </p>
+                    <c:forEach items="${tell}" var="tell">
+                        <div class="alert alert-success alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h4>
+                                用户ID：${tell.user_id} 评论时间：${tell.tell_time}
+                            </h4> <strong>${tell.tell}</strong>
+                        </div>
+                    </c:forEach>
 
                 </div>
             </div>

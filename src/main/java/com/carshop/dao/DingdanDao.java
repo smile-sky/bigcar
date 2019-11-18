@@ -1,6 +1,7 @@
 package com.carshop.dao;
 
 import com.carshop.domain.Dingdan;
+import com.carshop.domain.Num;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -45,5 +46,10 @@ public interface DingdanDao {
      * @return
      */
     Integer updateDingdan(Integer dingdan_id);
+
+    List<Dingdan> selectuseridandstatu(@Param("user_id") Integer user_id, @Param("statu") Integer statu);
+
+    /*添加积分表*/
+    Num insertNum(Integer user_id, Integer number);
 
 }

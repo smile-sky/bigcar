@@ -4,14 +4,26 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.carshop.dao.TellDao">
     <select id="querytell" resultType="com.carshop.domain.Tell">
-        select * from t_tell where user_id=#{user_id}
+        select * from t_tell
+        <where>
+            <if test="user_id!=''and user_id!=null">
+                user_id=#{user_id}
+            </if>
+            <if test="product_id!=null and product_id!=''">
+                product_id=#{product_id}
+            </if>
+        </where>
     </select>
 
     <insert id="inserttell" parameterType="com.carshop.domain.Tell">
-        insert into t_tell set tell=#{tell},tell_time=now()
+        insert into t_tell set tell=#{tell},tell_time=now(),user_id=#{user_id},product_id=#{product_id}
     </insert>
 
     <delete id="deletetell" parameterType="com.carshop.domain.Tell">
         delete from t_tell where tell_id=#{tell_id}
     </delete>
+
+    <select id="selectcar" resultType="com.carshop.domain.Tell">
+        select *from t_tell where product_id=#{product_id}
+    </select>
 </mapper>

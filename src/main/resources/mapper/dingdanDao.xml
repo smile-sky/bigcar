@@ -75,6 +75,16 @@
      ]]>
     </update>
 
+    <select id="selectuseridandstatu" resultType="com.carshop.domain.Dingdan">
+        SELECT *from t_dingdan where user_id=#{user_id} and statu=#{statu}
+    </select>
+
+
+    <!--添加积分表-->
+    <insert id="insertNum" parameterType="com.carshop.domain.Dingdan">
+        insert into t_number(user_id,number)values (#{user_id},#{number})
+    </insert>
+
 
     <!--    &lt;!&ndash; 根据用户名和密码查询账户 &ndash;&gt;
         <select id="findUserByUnAndPs" resultType="com.carshop.domain.User">

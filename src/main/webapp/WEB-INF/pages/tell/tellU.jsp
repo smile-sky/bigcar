@@ -18,25 +18,24 @@
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
-            <form class="form-search" action="/dingdan/queryAllDingdan">
-                车辆ID
-                <input class="input-medium search-query" type="text" name="product_id"/>
-                用户ID
-                <input class="input-medium search-query" type="text" name="user_id"/>
+            <form class="form-search" action="/seller/sellerselect">
+                账号
+                <input class="input-medium search-query" type="text" name="username"/>
+                电话
+                <input class="input-medium search-query" type="text" name="phone"/>
                 <button type="submit" class="btn btn-primary">查找</button>
             </form>
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>
-
                     <th>
                         商品ID
                     </th>
                     <th>
-                        下单时间
+                        内容
                     </th>
                     <th>
-                        状态
+                        时间
                     </th>
                     <th>
                         操作
@@ -45,27 +44,25 @@
                 </thead>
                 <tbody>
 
-                <c:forEach items="${dingdan}" var="dingdan">
+                <c:forEach items="${tell}" var="tell">
 
 
                     <tr>
-
                         <td>
-                                ${dingdan.product_id}
+                                ${tell.product_id}
                         </td>
                         <td>
-                                ${dingdan.order_time}
+                                ${tell.tell}
                         </td>
                         <td>
-                                ${dingdan.statu==0?"运输中":"已到货"}
+                                ${tell.tell_time}
                         </td>
 
-
                         <td>
+                            <a class="btn btn-primary" style="margin-right:10px;"
+                               href="/tell/deletetell?tell_id=${tell.tell_id}">删除</a>
 
-
-                            <a class="btn btn-primary"
-                               href="/dingdan/userupdateDingdan?dingdan_id=${dingdan.dingdan_id}">已到货</a>
+                            <a class="btn btn-primary" href="/tell/deletetell?tell_id=${tell.tell_id}">修改</a>
                         </td>
                     </tr>
                 </c:forEach>

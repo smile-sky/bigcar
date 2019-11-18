@@ -1,8 +1,11 @@
 package com.carshop.controller;
 
 import com.carshop.domain.Dingdan;
+import com.carshop.domain.Num;
+import com.carshop.domain.Product;
 import com.carshop.domain.User;
 import com.carshop.service.DingdanService;
+import com.carshop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +23,9 @@ public class DingdanController {
     @Autowired
     private DingdanService dingdanService;
 
+    @Autowired
+    private ProductService productService;
+
     /**
      * 查询所有订单
      * @param model
@@ -32,12 +38,26 @@ public class DingdanController {
       String a;
       if (dingdans != null) {
 
-          a = "dingdan/dingdanU";
+          a = "dingdan/dingdanM";
       } else {
           a = "error";
       }
-      return a;
-  }
+        return a;
+    }
+
+    @RequestMapping("/userqueryAllDingdan")
+    public String userquery(Integer product_id, Integer user_id, Model model) {
+        List<Dingdan> dingdans = dingdanService.queryDingdan(product_id, user_id);
+        model.addAttribute("dingdan", dingdans);
+        String a;
+        if (dingdans != null) {
+
+            a = "dingdan/dingdanU";
+        } else {
+            a = "error";
+        }
+        return a;
+    }
 
 
     /**
@@ -73,6 +93,14 @@ public class DingdanController {
       dingdan.setUser_id(user.getUser_id());
       dingdan.setProduct_id(product_id);
       Integer row = dingdanService.insertDingdan(dingdan);
+
+      //添加订单的同时添加积分记录,这里首先要获取到商品ID去查询到商品的价格
+      Product product = productService.selectproduct(dingdan.getDingdan_id());
+
+      //在这里将商品的价格和用户的ID添加到积分表里面去
+      Num num = dingdanService.insertNum(dingdan.getUser_id(), product.getPrice());
+
+
    String a;
       if (row != null) {
           a = "success";
@@ -115,5 +143,29 @@ public class DingdanController {
       }
       return a;
   }
+
+    @RequestMapping("/userupdateDingdan")
+    public String userupdateDingdan(Integer dingdan_id) {
+        Integer rows = dingdanService.updateDingdan(dingdan_id);
+        String a;
+        if (rows != null) {
+            a = "redirect:/dingdan/userqueryAllDingdan";
+        } else {
+            a = "error";
+        }
+        return a;
+    }
+
+    @RequestMapping("selectuseridandstatu")
+    public String selectuseridandstatu(Integer user_id, Integer statu, Model d) {
+        String a;
+        List<Dingdan> dingdans = dingdanService.selectuseridandstatu(user_id, statu);
+        if (dingdans != null) {
+            d.addAttribute("dingdan", dingdans);
+            a = "pinglun/pinglunU";
+
+        } else a = "error";
+        return a;
+    }
 
 }

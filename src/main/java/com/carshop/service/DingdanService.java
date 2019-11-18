@@ -1,6 +1,7 @@
 package com.carshop.service;
 
 import com.carshop.domain.Dingdan;
+import com.carshop.domain.Num;
 
 import java.util.List;
 
@@ -41,5 +42,8 @@ public interface DingdanService {
      */
     Integer updateDingdan(Integer dingdan_id);
 
+    List<Dingdan> selectuseridandstatu(Integer user_id, Integer statu);
 
+    /*添加积分表*/
+    Num insertNum(Integer user_id, Integer number);
 }

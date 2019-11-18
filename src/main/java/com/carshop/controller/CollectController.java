@@ -1,12 +1,17 @@
 package com.carshop.controller;
 
 import com.carshop.domain.Collect;
+import com.carshop.domain.Dingdan;
+import com.carshop.domain.Product;
+import com.carshop.domain.User;
 import com.carshop.service.CollectService;
+import com.carshop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -15,6 +20,9 @@ public class CollectController {
     //@Qualifier("collectService")
     @Autowired
     private CollectService collectService;
+
+    @Autowired
+    private ProductService productService;
 
     /**
      * 查询所有收藏表信息
@@ -35,19 +43,20 @@ public class CollectController {
       return a;
   }
 
+
     /**
      * 根据收藏表ID查询收藏表信息
-     * @param collectId
+     * @param user_id
      * @param model
      * @return
      */
   @RequestMapping("/queryByIdCollect")
-  public String queryOneCollect(Integer collectId,Model model){
-      Collect collect=collectService.getCollect(collectId);
+  public String queryOneCollect(Integer user_id, Model model) {
+      List<Collect> collect = collectService.getCollect(user_id);
         model.addAttribute("collect",collect);
       String a;
       if (collect != null) {
-          a = "success";
+          a = "collect/collectU";
       } else {
           a = "error";
       }
@@ -60,7 +69,15 @@ public class CollectController {
      * @return
      */
   @RequestMapping("/insertCollect")
-  public String insertDing(Collect collect){
+  public String insertDing(Integer product_id, HttpSession session) {
+      Collect collect = new Collect();
+      User user = (User) session.getAttribute("user");
+      collect.setUser_id(user.getUser_id());
+      Product product = productService.selectproductid(product_id);
+      collect.setPinpai(product.getPinpai());
+      collect.setPrice(product.getPrice());
+      collect.setType(product.getType());
+      collect.setProduct_id(product_id);
    int row=collectService.insertCollect(collect);
    String a;
       if (collect!= null) {
@@ -70,6 +87,7 @@ public class CollectController {
       }
       return a;
   }
+
 
     /**
      *删除收藏表

@@ -32,7 +32,7 @@
                     <div id="panel-element-671326" class="panel-collapse in">
                         <div class="panel-body">
 
-                            <a href="/dingdan/queryAllDingdan?user_id=${user.user_id}" target="name">我的订单</a>
+                            <a href="/dingdan/userqueryAllDingdan?user_id=${user.user_id}" target="name">我的订单</a>
                         </div>
 
                     </div>
@@ -51,22 +51,27 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-964009"
-                           href="#panel-element-937292">商品管理</a>
+                           href="#panel-element-937292">评论</a>
                     </div>
                     <div id="panel-element-937292" class="panel-collapse collapse">
                         <div class="panel-body">
-                            <a href="/product/queryproduct" target="name">商品管理</a>
+                            <a href="/dingdan/selectuseridandstatu?user_id=${user.user_id}&statu=1"
+                               target="name">可评论</a>
+                        </div>
+                        <div class="panel-body">
+                            <a href="/tell/querytell?user_id=${user.user_id}&statu=1" target="name">我的评论</a>
                         </div>
                     </div>
+
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-964009"
-                           href="#panel-element-937293">订单管理</a>
+                           href="#panel-element-937293">收藏管理</a>
                     </div>
                     <div id="panel-element-937293" class="panel-collapse collapse">
                         <div class="panel-body">
-                            <a href="/dingdan/queryAllDingdan" target="name">订单管理</a>
+                            <a href="/collect/queryByIdCollect?user_id=${user.user_id}" target="name">我的收藏</a>
                         </div>
                     </div>
                 </div>

@@ -18,7 +18,7 @@
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-12 column">
-            <form role="form" action="/admin/login">
+            <form role="form" action="/user/userRegister">
                 <div class="form-group">
                     <label for="username">账号</label><input type="test" class="form-control" id="username"
                                                            name="username"/>

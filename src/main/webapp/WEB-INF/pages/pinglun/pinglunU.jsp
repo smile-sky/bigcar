@@ -65,7 +65,7 @@
 
 
                             <a class="btn btn-primary"
-                               href="/dingdan/userupdateDingdan?dingdan_id=${dingdan.dingdan_id}">已到货</a>
+                               href="/product/pinglun?product_id=${dingdan.product_id}">评论</a>
                         </td>
                     </tr>
                 </c:forEach>

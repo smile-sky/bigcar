@@ -67,9 +67,8 @@
                                         ${product.beizhu}
                                 </p>
                                 <p>
-                                    <a class="btn btn-primary"
-                                       href="/product/selectproductid1?product_id=${product.product_id}">详情</a> <a
-                                        class="btn" href="#">收藏</a>
+                                    <a class="btn btn-block btn-lg btn-warning"
+                                       href="/product/selectproductid1?product_id=${product.product_id}">详情</a>
                                 </p>
                             </div>
                         </div>

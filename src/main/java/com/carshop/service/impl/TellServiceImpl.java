@@ -17,8 +17,8 @@ public class TellServiceImpl implements TellService {
 
 
     @Override
-    public List<Tell> querytell(Integer user_id) {
-        return tellDao.querytell(user_id);
+    public List<Tell> querytell(Integer user_id, Integer product_id) {
+        return tellDao.querytell(user_id, product_id);
     }
 
     //买家增加评论
@@ -31,5 +31,10 @@ public class TellServiceImpl implements TellService {
     @Override
     public Integer deletetell(Integer tell_id) {
         return tellDao.deletetell(tell_id);
+    }
+
+    @Override
+    public List<Tell> selectcar(Integer product_id) {
+        return tellDao.selectcar(product_id);
     }
 }

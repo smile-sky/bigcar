@@ -15,10 +15,10 @@ public interface CollectService {
 
     /**
      * 根据收藏表ID加载收藏表信息
-     * @param CollectId
+     * @param user_id
      * @return
      */
-    Collect getCollect(int CollectId);
+    List<Collect> getCollect(Integer user_id);
 
 
     /**

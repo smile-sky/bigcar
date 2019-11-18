@@ -18,26 +18,27 @@
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
-            <form class="form-search" action="/dingdan/queryAllDingdan">
-                车辆ID
-                <input class="input-medium search-query" type="text" name="product_id"/>
-                用户ID
-                <input class="input-medium search-query" type="text" name="user_id"/>
+            <form class="form-search" action="/product/queryproduct">
+                品牌
+                <input class="input-medium search-query" type="text" name="pinpai"/>
+                车型
+                <input class="input-medium search-query" type="text" name="type"/>
                 <button type="submit" class="btn btn-primary">查找</button>
             </form>
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>
+                    <th>
+                        品牌
+                    </th>
+                    <th>
+                        车型
+                    </th>
+                    <th>
+                        价格
+                    </th>
 
-                    <th>
-                        商品ID
-                    </th>
-                    <th>
-                        下单时间
-                    </th>
-                    <th>
-                        状态
-                    </th>
+
                     <th>
                         操作
                     </th>
@@ -45,19 +46,18 @@
                 </thead>
                 <tbody>
 
-                <c:forEach items="${dingdan}" var="dingdan">
+                <c:forEach items="${collect}" var="collect">
 
 
                     <tr>
-
                         <td>
-                                ${dingdan.product_id}
+                                ${collect.pinpai}
                         </td>
                         <td>
-                                ${dingdan.order_time}
+                                ${collect.type}
                         </td>
                         <td>
-                                ${dingdan.statu==0?"运输中":"已到货"}
+                                ${collect.price}
                         </td>
 
 
@@ -65,7 +65,8 @@
 
 
                             <a class="btn btn-primary"
-                               href="/dingdan/userupdateDingdan?dingdan_id=${dingdan.dingdan_id}">已到货</a>
+                               href="/collect/deleteCollect?collectId=${collect.collect_id}">删除</a>
+
                         </td>
                     </tr>
                 </c:forEach>

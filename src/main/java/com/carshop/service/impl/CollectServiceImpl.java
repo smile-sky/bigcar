@@ -26,8 +26,8 @@ public class CollectServiceImpl implements CollectService {
     }
 
     @Override
-    public Collect getCollect(int CollectId) {//根据ID查询收藏表信息
-        return collectDao.getCollect(CollectId);
+    public List<Collect> getCollect(Integer user_id) {//根据ID查询收藏表信息
+        return collectDao.getCollect(user_id);
     }
 
     @Override

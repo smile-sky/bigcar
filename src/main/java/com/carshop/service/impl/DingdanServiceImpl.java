@@ -3,6 +3,7 @@ package com.carshop.service.impl;
 
 import com.carshop.dao.DingdanDao;
 import com.carshop.domain.Dingdan;
+import com.carshop.domain.Num;
 import com.carshop.service.DingdanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -65,4 +66,16 @@ public class DingdanServiceImpl  implements DingdanService {
     public Integer updateDingdan(Integer dingdan_id) {
         return dingdanDao.updateDingdan(dingdan_id);
     }
+
+    @Override
+    public List<Dingdan> selectuseridandstatu(Integer user_id, Integer statu) {
+        return dingdanDao.selectuseridandstatu(user_id, statu);
+    }
+
+
+    @Override
+    public Num insertNum(Integer user_id, Integer number) {
+        return dingdanDao.insertNum(user_id, number);
+    }
+
 }
