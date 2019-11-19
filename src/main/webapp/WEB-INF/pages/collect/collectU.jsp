@@ -18,13 +18,7 @@
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
-            <form class="form-search" action="/product/queryproduct">
-                品牌
-                <input class="input-medium search-query" type="text" name="pinpai"/>
-                车型
-                <input class="input-medium search-query" type="text" name="type"/>
-                <button type="submit" class="btn btn-primary">查找</button>
-            </form>
+
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>

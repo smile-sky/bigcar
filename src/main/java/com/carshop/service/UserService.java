@@ -1,5 +1,6 @@
 package com.carshop.service;
 
+import com.carshop.domain.Num;
 import com.carshop.domain.User;
 
 import java.util.List;
@@ -16,4 +17,9 @@ public interface UserService {
 
     Integer update(User user);
     int userResgiter(User user);
+
+    /**
+     * 查看用户的积分
+     */
+    Num insertNum(Integer user_id);
 }

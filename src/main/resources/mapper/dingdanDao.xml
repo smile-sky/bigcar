@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
-    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.carshop.dao.DingdanDao">
@@ -26,6 +26,12 @@
             </if>
         </where>
     </select>
+
+    <select id="queryDingdan1" resultType="com.carshop.domain.Dingdan">
+        SELECT * FROM t_dingdan WHERE product_id in
+         (SELECT product_id FROM t_product WHERE seller_id=#{sellerid})
+    </select>
+
     <!-- 根据订单ID加载订单信息-->
     <select id="getDingdan"   resultType="com.carshop.domain.Dingdan">
         <![CDATA[

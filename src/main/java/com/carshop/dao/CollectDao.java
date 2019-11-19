@@ -1,6 +1,7 @@
 package com.carshop.dao;
 
 import com.carshop.domain.Collect;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -50,5 +51,7 @@ public interface CollectDao {
      * @return
      */
     int updateCollect(Collect collect);
+
+    Integer selectCollectUandP(@Param("user_id") Integer user_id, @Param("product_id") Integer product_id);
 
 }

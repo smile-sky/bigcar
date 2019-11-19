@@ -18,27 +18,25 @@
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
-            <form class="form-search" action="/dingdan/queryAllDingdan">
-                车辆ID
-                <input class="input-medium search-query" type="text" name="product_id"/>
-                用户ID
-                <input class="input-medium search-query" type="text" name="user_id"/>
+            <form class="form-search" action="/seller/sellerselect5">
+                账号
+                <input class="input-medium search-query" type="text" name="username"/>
+                电话
+                <input class="input-medium search-query" type="text" name="phone"/>
                 <button type="submit" class="btn btn-primary">查找</button>
             </form>
+
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>
                     <th>
-                        用户ID
+                        账号
                     </th>
                     <th>
-                        商品ID
+                        电话
                     </th>
                     <th>
-                        下单时间
-                    </th>
-                    <th>
-                        状态
+                        住址
                     </th>
                     <th>
                         操作
@@ -47,31 +45,23 @@
                 </thead>
                 <tbody>
 
-                <c:forEach items="${dingdan}" var="dingdan">
+                <c:forEach items="${sellerse}" var="seller">
 
 
                     <tr>
                         <td>
-                                ${dingdan.user_id}
+                                ${seller.username}
                         </td>
                         <td>
-                                ${dingdan.product_id}
+                                ${seller.phone}
                         </td>
                         <td>
-                                ${dingdan.order_time}
+                                ${seller.address}
                         </td>
-                        <td>
-                                ${dingdan.statu}
-                        </td>
-
 
                         <td>
 
-
-                            <a class="btn btn-primary"
-                               href="/dingdan/queryByIdDingdan?dingdan_id=${dingdan.dingdan_id}">修改</a>
-                            <a class="btn btn-primary"
-                               href="/dingdan/deleteDingdan?dingdanId=${dingdan.product_id}">删除</a>
+                            <a class="btn btn-primary" href="/seller/sellerselect1?sellerid=${seller.sellerid}">修改</a>
 
                         </td>
                     </tr>

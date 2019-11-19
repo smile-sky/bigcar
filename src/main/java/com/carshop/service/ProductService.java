@@ -9,6 +9,8 @@ public interface ProductService {
     //（买家）商品按商品品牌跟型号查询
     List<Product> queryproduct(String pinpai, String type);
 
+    List<Product> queryproduct5(String pinpai, String type, Integer product_id);
+
     //（卖家查询）商家查所有
     Product selectproduct(Integer product_id);
 

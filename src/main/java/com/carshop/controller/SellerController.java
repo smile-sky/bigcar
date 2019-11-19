@@ -1,10 +1,7 @@
 package com.carshop.controller;
 
 import com.carshop.dao.SellerDao;
-import com.carshop.domain.Admin;
-import com.carshop.domain.Product;
-import com.carshop.domain.Seller;
-import com.carshop.domain.User;
+import com.carshop.domain.*;
 import com.carshop.service.AdminService;
 import com.carshop.service.ProductService;
 import com.carshop.service.SellerService;
@@ -53,6 +50,9 @@ public class SellerController {
                 session.setAttribute("user", user);
                 List<Product> product = productService.selectall();
 
+                Num num = userService.insertNum(user.getUser_id());
+                session.setAttribute("num", num.getNumber());
+
                 model.addAttribute("product", product);
 
                 if (product != null) {
@@ -67,12 +67,27 @@ public class SellerController {
         if(lei==2){
             Seller seller=sellerService.login(username,password);
             if (seller!=null){
-                a="success";
+                a = "seller";
                 session.setAttribute("seller",seller);
             }else a="error";
             return a;
         }
         return null;
+    }
+
+
+    //商品上架（判定卖家存在）
+    @RequestMapping("/sellerselect2")
+    public String select1(String username, String phone, Model d) {
+        List<Seller> sellers = sellerService.queryseller(username, phone);
+        d.addAttribute("sellerse", sellers);
+        String a;
+        if (sellers != null) {
+            a = "Product/sellerproductadd";
+        } else {
+            a = "error";
+        }
+        return a;
     }
 
 
@@ -125,7 +140,7 @@ public class SellerController {
             a = "redirect:/seller/sellerselect";
 
         }else {
-            a="error";
+            a = "     error";
         }
         return a;
   }
@@ -135,7 +150,7 @@ public class SellerController {
         int rows=sellerService.updateseller(seller);
       String a;
       if (seller!= null) {
-          a = "redirect:/seller/sellerselect";
+          a = "redirect:/seller/sellerselect5";
       } else {
           a = "error";
       }

@@ -24,7 +24,7 @@
 
     <!--按条件（用户名）查询-->
     <select id="selectseller" resultType="com.carshop.domain.Seller">
-     select * from t_seller where sellerid=#{sellerid}
+     select * from t_seller where seller_id=#{seller_id}
     </select>
 
       <!--卖家增加信息-->
@@ -34,11 +34,11 @@
 
     <!--//删除卖家用户信息-->
     <delete id="deleteseller" parameterType="com.carshop.domain.Seller">
-        DELETE from t_seller where sellerid=#{sellerid}
+        DELETE from t_seller where seller_id=#{seller_id}
     </delete>
 
    <!--修改卖家信息-->
     <update id="updateseller" parameterType="com.carshop.domain.Seller">
-        update t_seller set username=#{username},phone=#{phone},address=#{address} where sellerid=#{sellerid}
+        update t_seller set username=#{username},phone=#{phone},address=#{address} where seller_id=#{seller_id}
     </update>
 </mapper>

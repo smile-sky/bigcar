@@ -1,5 +1,6 @@
 package com.carshop.dao;
 
+import com.carshop.domain.Num;
 import com.carshop.domain.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -26,5 +27,10 @@ public interface UserDao {
      * @return
      */
     int userResgiter(User user);
+
+    /**
+     * 用户查看积分表
+     */
+    Num insertNum(Integer user_id);
 
 }

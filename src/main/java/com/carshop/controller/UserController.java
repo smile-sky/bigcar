@@ -61,7 +61,7 @@ public class UserController {
         String a;
         Integer b = us.deleteUser(id);
         if (b != null) {
-            a = "success";
+            a = "redirect:/user/select";
         } else a = "error";
         return a;
     }
@@ -96,5 +96,6 @@ public class UserController {
         } else a = "error";
         return a;
     }
+
 
 }

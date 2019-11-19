@@ -60,9 +60,9 @@
 
                         <td>
                             <a class="btn btn-primary" style="margin-right:10px;"
-                               href="/seller/deleteseller?sellerid=${seller.sellerid}">删除</a>
+                               href="/seller/deleteseller?sellerid= ${seller.sellerid}">删除</a>
 
-                            <a class="btn btn-primary" href="/seller/sellerselect1?sellerid=${seller.sellerid}">修改</a>
+                            <a class="btn btn-primary" href="/seller/sellerselect1?sellerid= ${seller.phone}">修改</a>
                         </td>
                     </tr>
                 </c:forEach>

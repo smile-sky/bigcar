@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: 11466
@@ -18,13 +19,7 @@
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
-            <form class="form-search" action="/dingdan/queryAllDingdan">
-                车辆ID
-                <input class="input-medium search-query" type="text" name="product_id"/>
-                用户ID
-                <input class="input-medium search-query" type="text" name="user_id"/>
-                <button type="submit" class="btn btn-primary">查找</button>
-            </form>
+
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>
@@ -53,8 +48,11 @@
                         <td>
                                 ${dingdan.product_id}
                         </td>
+                            <%--                       <td>
+                                                           ${dingdan.order_time}
+                                                   </td>--%>
                         <td>
-                                ${dingdan.order_time}
+                            <fmt:formatDate value="${dingdan.order_time}" pattern="yyyy-MM-dd"/>
                         </td>
                         <td>
                                 ${dingdan.statu==0?"运输中":"已到货"}

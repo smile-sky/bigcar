@@ -17,6 +17,11 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> queryproduct(String pinpai, String type) {
         return productDao.queryproduct(pinpai,type);
     }
+
+    @Override
+    public List<Product> queryproduct5(String pinpai, String type, Integer product_id) {
+        return productDao.queryproduct5(pinpai, type, product_id);
+    }
    //卖家查找所有
     @Override
     public Product selectproduct(Integer product_id) {

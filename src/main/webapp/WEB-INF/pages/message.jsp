@@ -13,6 +13,21 @@
     <link rel="stylesheet" href="../../css/bootstrap.css" type="text/css">
     <script type="text/javascript" src="../../js/jquery.min.js"></script>
     <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+
+            // test 的点击事件
+            $(".btn-warning").click(function () {
+
+                alert("购买成功");
+            });
+            $(".btn-success").click(function () {
+
+                alert("收藏成功");
+            });
+
+
+        })</script>
 </head>
 <body>
 <div class="container">
@@ -52,7 +67,7 @@
                                 <a type="submit" class="btn btn-block btn-lg btn-warning"
                                    href="/dingdan/insertDingdan?product_id=${product.product_id}">购买</a>
                                 <a type="submit" class="btn btn-block btn-lg btn-success"
-                                   href="/collect/insertCollect?product_id=${product.product_id}">收藏</a>
+                                   href="/collect/insertCollect?product_id=${product.product_id}">${row!=null?"已收藏":"收藏"}</a>
                             </div>
                         </div>
                     </div>

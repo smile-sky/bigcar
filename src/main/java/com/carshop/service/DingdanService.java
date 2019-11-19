@@ -14,6 +14,8 @@ public interface DingdanService {
      */
     List<Dingdan> queryDingdan(Integer product_id, Integer user_id);
 
+    List<Dingdan> queryDingdan1(Integer sellerid);
+
     /**
      * 根据订单ID加载订单信息
      * @param dingdanId

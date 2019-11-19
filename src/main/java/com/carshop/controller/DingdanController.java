@@ -1,9 +1,6 @@
 package com.carshop.controller;
 
-import com.carshop.domain.Dingdan;
-import com.carshop.domain.Num;
-import com.carshop.domain.Product;
-import com.carshop.domain.User;
+import com.carshop.domain.*;
 import com.carshop.service.DingdanService;
 import com.carshop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,24 +83,25 @@ public class DingdanController {
      * @return
      */
   @RequestMapping("/insertDingdan")
-  public String insertDing(Integer product_id, HttpSession session) {
+  public String insertDing(Integer product_id, HttpSession session, Model model) {
 
       User user = (User) session.getAttribute("user");
       Dingdan dingdan = new Dingdan();
       dingdan.setUser_id(user.getUser_id());
       dingdan.setProduct_id(product_id);
       Integer row = dingdanService.insertDingdan(dingdan);
+      model.addAttribute("row", row);
 
       //添加订单的同时添加积分记录,这里首先要获取到商品ID去查询到商品的价格
-      Product product = productService.selectproduct(dingdan.getDingdan_id());
+      //Product product = productService.selectproduct(dingdan.getDingdan_id());
 
       //在这里将商品的价格和用户的ID添加到积分表里面去
-      Num num = dingdanService.insertNum(dingdan.getUser_id(), product.getPrice());
+      //Num num = dingdanService.insertNum(dingdan.getUser_id(), product.getPrice());
 
 
    String a;
       if (row != null) {
-          a = "success";
+          a = "redirect:/product/selectproductid1?product_id=" + product_id + "";
       } else {
           a = "error";
       }
@@ -120,12 +118,34 @@ public class DingdanController {
         model.addAttribute("dingdan",dingdanId);
         String a;
         if(model!=null){
-            a="success";
-        }else {
-            a="error";
+            a = "redirect:/dingdan/queryAllDingdan";
+        } else {
+            a = "error";
+        }
+      return a;
+  }
+
+
+    /**
+     * 查询所有订单(卖家)
+     *
+     * @param model
+     * @return
+     */
+    @RequestMapping("/queryAllDingdan1")
+    public String query1(Model model, Integer sellerid) {
+
+        List<Dingdan> dingdans = dingdanService.queryDingdan1(sellerid);
+        model.addAttribute("dingdan", dingdans);
+        String a;
+        if (dingdans != null) {
+
+            a = "dingdan/dingdanS";
+        } else {
+            a = "error";
         }
         return a;
-  }
+    }
 
     /**
      *

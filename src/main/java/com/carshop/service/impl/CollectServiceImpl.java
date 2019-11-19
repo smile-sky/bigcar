@@ -44,4 +44,9 @@ public class CollectServiceImpl implements CollectService {
     public int updateCollect(Collect collect) {//更新收藏表信息
         return collectDao.updateCollect(collect);
     }
+
+    @Override
+    public Integer selectCollectbyUandP(Integer user_id, Integer product_id) {
+        return collectDao.selectCollectUandP(user_id, product_id);
+    }
 }

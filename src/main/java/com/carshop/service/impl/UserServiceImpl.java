@@ -1,6 +1,7 @@
 package com.carshop.service.impl;
 
 import com.carshop.dao.UserDao;
+import com.carshop.domain.Num;
 import com.carshop.domain.User;
 import com.carshop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,5 +48,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public int userResgiter(User user) {
         return ud.userResgiter(user);
+    }
+
+    /**
+     * 查看用户的积分
+     */
+    @Override
+    public Num insertNum(Integer user_id) {
+        return ud.insertNum(user_id);
     }
 }

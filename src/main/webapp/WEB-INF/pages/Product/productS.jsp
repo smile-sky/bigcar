@@ -18,27 +18,33 @@
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
-            <form class="form-search" action="/dingdan/queryAllDingdan">
-                车辆ID
-                <input class="input-medium search-query" type="text" name="product_id"/>
-                用户ID
-                <input class="input-medium search-query" type="text" name="user_id"/>
+            <form class="form-search" action="/product/queryproduct1">
+                品牌
+                <input class="input-medium search-query" type="text" name="pinpai"/>
+                车型
+                <input class="input-medium search-query" type="text" name="type"/>
                 <button type="submit" class="btn btn-primary">查找</button>
+
             </form>
+
+
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>
                     <th>
-                        用户ID
+                        品牌
                     </th>
                     <th>
-                        商品ID
+                        车型
                     </th>
                     <th>
-                        下单时间
+                        价格
                     </th>
                     <th>
-                        状态
+                        颜色
+                    </th>
+                    <th>
+                        审查状态
                     </th>
                     <th>
                         操作
@@ -47,31 +53,34 @@
                 </thead>
                 <tbody>
 
-                <c:forEach items="${dingdan}" var="dingdan">
+                <c:forEach items="${product}" var="product">
 
 
                     <tr>
                         <td>
-                                ${dingdan.user_id}
+                                ${product.pinpai}
                         </td>
                         <td>
-                                ${dingdan.product_id}
+                                ${product.type}
                         </td>
                         <td>
-                                ${dingdan.order_time}
+                                ${product.price}
                         </td>
                         <td>
-                                ${dingdan.statu}
+                                ${product.color}
                         </td>
 
-
+                        <td>
+                                ${product.check_list}
+                        </td>
                         <td>
 
 
+                            <a class="btn btn-primary" href="/product/selectproductid?product_id=${product.product_id}">修改</a>
                             <a class="btn btn-primary"
-                               href="/dingdan/queryByIdDingdan?dingdan_id=${dingdan.dingdan_id}">修改</a>
-                            <a class="btn btn-primary"
-                               href="/dingdan/deleteDingdan?dingdanId=${dingdan.product_id}">删除</a>
+                               href="/product/deleteproduct?product_id=${product.product_id}">下架</a>
+                            <a class="btn btn-primary" href="/product/deleteproduct?product_id=${product.product_id}">查看评论</a>
+
 
                         </td>
                     </tr>

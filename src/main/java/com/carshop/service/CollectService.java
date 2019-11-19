@@ -47,4 +47,7 @@ public interface CollectService {
     int updateCollect(Collect collect);
 
 
+    Integer selectCollectbyUandP(Integer user_id, Integer product_id);
+
+
 }

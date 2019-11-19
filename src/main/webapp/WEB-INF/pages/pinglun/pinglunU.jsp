@@ -18,13 +18,7 @@
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
-            <form class="form-search" action="/dingdan/queryAllDingdan">
-                车辆ID
-                <input class="input-medium search-query" type="text" name="product_id"/>
-                用户ID
-                <input class="input-medium search-query" type="text" name="user_id"/>
-                <button type="submit" class="btn btn-primary">查找</button>
-            </form>
+
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>

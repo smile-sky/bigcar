@@ -1,7 +1,7 @@
 package com.carshop.domain;
 
 public class Seller {
-    private Integer sellerid;
+    private Integer seller_id;
     private String username;
     private String password;
     private String phone;
@@ -11,7 +11,7 @@ public class Seller {
     public Seller(){}
 
     public Seller(Integer sellerid, String username, String password, String phone, String address) {
-        this.sellerid = sellerid;
+        this.seller_id = sellerid;
         this.username = username;
         this.password = password;
         this.phone = phone;
@@ -19,11 +19,11 @@ public class Seller {
     }
 
     public Integer getSellerid() {
-        return sellerid;
+        return seller_id;
     }
 
     public void setSellerid(Integer sellerid) {
-        this.sellerid = sellerid;
+        this.seller_id = sellerid;
     }
 
     public String getUsername() {
@@ -61,7 +61,7 @@ public class Seller {
     @Override
     public String toString() {
         return "Seller{" +
-                "sellerid=" + sellerid +
+                "sellerid=" + seller_id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +

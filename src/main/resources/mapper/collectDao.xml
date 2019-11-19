@@ -70,5 +70,10 @@
          )
 
     </insert>
+
+    <select id="selectCollectUandP" resultType="Integer">
+        select *from t_collect where product_id=#{product_id} and user_id=#{user_id}
+    </select>
+
 </mapper>
 

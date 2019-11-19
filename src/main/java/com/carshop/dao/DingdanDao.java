@@ -19,6 +19,8 @@ public interface DingdanDao {
      */
     List<Dingdan> queryDingdan(@Param("product_id") Integer product_id, @Param("user_id") Integer user_id);
 
+    List<Dingdan> queryDingdan1(@Param("sellerid") Integer sellerid);
+
     /**
      * 根据订单ID加载订单信息
      * @param dingdanId

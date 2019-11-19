@@ -2,6 +2,8 @@ package com.carshop.controller;
 
 import com.carshop.domain.Product;
 import com.carshop.domain.Tell;
+import com.carshop.domain.User;
+import com.carshop.service.CollectService;
 import com.carshop.service.ProductService;
 import com.carshop.service.TellService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -20,6 +23,9 @@ public class ProductController {
     @Autowired
     private TellService tellService;
 
+    @Autowired
+    private CollectService collectService;
+
     //（卖家）商品按商品品牌跟型号查询
     @RequestMapping("/queryproduct")
     public String queryproduct(String pinpai, String type, Model model){
@@ -30,6 +36,17 @@ public class ProductController {
            a = "Product/productM";
        }else a="error";
        return a;
+    }
+
+    @RequestMapping("/queryproduct5")
+    public String queryproduct5(String pinpai, String type, Integer product_id, Model model) {
+        List<Product> product = productService.queryproduct5(pinpai, type, product_id);
+        model.addAttribute("product", product);
+        String a;
+        if (product != null) {
+            a = "Product/productS";
+        } else a = "error";
+        return a;
     }
 
 
@@ -70,13 +87,17 @@ public class ProductController {
 
     //买家根据商品ID查询
     @RequestMapping("/selectproductid1")
-    public String selectproductid1(Integer product_id, Model d) {
+    public String selectproductid1(Integer product_id, Model d, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        Integer userid = user.getUser_id();
+        Integer row = collectService.selectCollectbyUandP(userid, product_id);
         Product rows = productService.selectproductid(product_id);
         List<Tell> tells = tellService.selectcar(product_id);
         String a;
         if (rows != null) {
             d.addAttribute("product", rows);
             d.addAttribute("tell", tells);
+            d.addAttribute("row", row);
             a = "message";
         } else a = "error";
         return a;
@@ -88,7 +109,7 @@ public class ProductController {
         int rows=productService.insertproduct(product);
         String a;
         if (product!=null){
-            a="success";
+            a = "redirect:/product/queryproduct1";
         }
         else a="error";
         return a;

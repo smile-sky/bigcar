@@ -81,7 +81,7 @@ public class CollectController {
    int row=collectService.insertCollect(collect);
    String a;
       if (collect!= null) {
-          a = "success";
+          a = "redirect:/product/selectproductid1?product_id=" + product_id + "";
       } else {
           a = "error";
       }
@@ -94,12 +94,15 @@ public class CollectController {
      * @return
      */
   @RequestMapping("/deleteCollect")
-  public String deleteCollect(int collectId,Model model){
+  public String deleteCollect(int collectId, Model model, HttpSession session) {
         int rows=collectService.deleteCollect(collectId);
+      User user = (User) session.getAttribute("user");
+      Integer x = user.getUser_id();
+      String y = x.toString();
         model.addAttribute("collect",collectId);
         String a;
         if(model!=null){
-            a="success";
+            a = "redirect:/collect/queryByIdCollect?user_id=" + y + "";
         }else {
             a="error";
         }

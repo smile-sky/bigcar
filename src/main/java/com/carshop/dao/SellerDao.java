@@ -19,7 +19,7 @@ public interface SellerDao {
      * @return
      */
 //    按条件（用户名）查询
-    Seller selectseller(@Param("sellerid") Integer sellerid);
+    Seller selectseller(@Param("seller_id") Integer sellerid);
 
     //卖家登录
     Seller login(@Param("username") String username,@Param("password") String password);

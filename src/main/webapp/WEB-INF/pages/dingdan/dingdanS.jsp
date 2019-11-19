@@ -18,13 +18,7 @@
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
-            <form class="form-search" action="/dingdan/queryAllDingdan">
-                车辆ID
-                <input class="input-medium search-query" type="text" name="product_id"/>
-                用户ID
-                <input class="input-medium search-query" type="text" name="user_id"/>
-                <button type="submit" class="btn btn-primary">查找</button>
-            </form>
+
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>
@@ -40,9 +34,7 @@
                     <th>
                         状态
                     </th>
-                    <th>
-                        操作
-                    </th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -61,19 +53,9 @@
                                 ${dingdan.order_time}
                         </td>
                         <td>
-                                ${dingdan.statu}
+                                ${dingdan.statu!=1?"运输中":"已到货"}
                         </td>
 
-
-                        <td>
-
-
-                            <a class="btn btn-primary"
-                               href="/dingdan/queryByIdDingdan?dingdan_id=${dingdan.dingdan_id}">修改</a>
-                            <a class="btn btn-primary"
-                               href="/dingdan/deleteDingdan?dingdanId=${dingdan.product_id}">删除</a>
-
-                        </td>
                     </tr>
                 </c:forEach>
 
