@@ -48,7 +48,7 @@ public class SellerController {
             User user=userService.login(username,password);
             if (user!=null){
                 session.setAttribute("user", user);
-                List<Product> product = productService.selectall();
+                List<Product> product = productService.userQueryproduct(null,null);
                 //查询积分
                 int zero = userService.selectNum(user.getUser_id());
                 session.setAttribute("zero", zero);

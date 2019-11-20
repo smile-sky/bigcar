@@ -68,7 +68,7 @@
 
     <!--商品上架-->
     <insert id="insertproduct" parameterType="com.carshop.domain.Product">
-        insert into t_product set type=#{type},price=#{price},pinpai=#{pinpai},color=#{color},beizhu=#{beizhu},check_list='0'
+        insert into t_product set type=#{type},price=#{price},pinpai=#{pinpai},color=#{color},beizhu=#{beizhu},check_list='0',seller_id=#{seller_id}
     </insert>
 
     <!--删除商品信息-->

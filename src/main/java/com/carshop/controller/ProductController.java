@@ -136,7 +136,7 @@ public class ProductController {
         int rows=productService.insertproduct(product);
         String a;
         if (product!=null){
-            a = "redirect:/product/queryproduct1";
+            a = "redirect:/product/queryproduct5";
         }
         else a="error";
         return a;

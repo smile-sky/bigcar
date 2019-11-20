@@ -20,7 +20,7 @@
             <form role="form" action="/product/insertproduct">
                 <div class="form-group">
                     <input type="hidden" class="form-control" id="product_id"
-                           name="product_id" value="${product.product_id}"/>
+                           name="seller_id" value="${seller.sellerid}"/>
                     <%--<input type="hidden" class="form-control" id="sellerid"--%>
                     <%--name="sellerid" value="${seller.sellerid}"/>--%>
                     <label for="pinpai">品牌</label><input type="test" class="form-control" id="pinpai"

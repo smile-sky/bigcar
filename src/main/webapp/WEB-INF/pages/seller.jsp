@@ -31,7 +31,7 @@
                     </div>
                     <div id="panel-element-937291" class="panel-collapse collapse">
                         <div class="panel-body">
-                            <a href="/seller/sellerselect3?sellerid=${seller.sellerid}" target="name">个人信息管理</a>
+                            <a href="/seller/sellerselect1?sellerid=${seller.sellerid}" target="name">个人信息管理</a>
                         </div>
                         <div class="panel-body">
                             <a href="/product/queryproduct5" target="name">商品管理</a>

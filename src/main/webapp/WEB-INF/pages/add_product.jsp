@@ -21,7 +21,7 @@
             <form role="form" action="/product/insertproduct">
                 <div class="form-group">
                     <input type="hidden" class="form-control" id="user_id"
-                           name="product_id" value="${product.product_id}"/>
+                           name="seller_id" value="${seller.seller_id}"/>
 
                 </div>
 
