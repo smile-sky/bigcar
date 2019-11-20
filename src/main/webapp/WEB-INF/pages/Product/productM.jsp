@@ -41,6 +41,9 @@
                         颜色
                     </th>
                     <th>
+                        类型
+                    </th>
+                    <th>
                         审核状态
                     </th>
                     <th>
@@ -66,6 +69,11 @@
                         <td>
                                 ${product.color}
                         </td>
+
+                        <td>
+                                ${product.beizhu}
+                        </td>
+
                         <td>
                                 ${product.check_list==1?"启用":"禁用"}
                         </td>

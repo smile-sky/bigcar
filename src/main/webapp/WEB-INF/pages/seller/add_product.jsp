@@ -46,7 +46,7 @@
                                             name="color" value="${product.color}"/>
                 </div>
                 <div class="form-group">
-                    <label>备注</label><input type="text" class="form-control" id="beizhu"
+                    <label>备注</label><input type="textarea" class="form-control" id="beizhu"
                                             name="beizhu" value="${product.beizhu}"/>
                 </div>
 

@@ -21,5 +21,10 @@ public interface UserService {
     /**
      * 查看用户的积分
      */
-    Num insertNum(Integer user_id);
+    Integer selectNum(Integer user_id);
+
+    /*
+    * 注册时添加积分记录
+    * */
+    Integer insertZero(Integer user_id);
 }

@@ -90,6 +90,7 @@ public class UserController {
     @RequestMapping("/userRegister")//用户注册
     public String userRegister(User user) {
         int user2=us.userResgiter(user);
+
         String a;
         if (user != null) {
             a = "../../login";

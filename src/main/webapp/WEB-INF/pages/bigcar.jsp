@@ -26,12 +26,12 @@
                             data-target="#bs-example-navbar-collapse-1"><span
                             class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                             class="icon-bar"></span><span class="icon-bar"></span></button>
-                    <a class="navbar-brand" href="bigcar.jsp">大表哥二手车${user}</a>
+                    <a class="navbar-brand" href="bigcar.jsp">大表哥二手车</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-                    <form class="navbar-form navbar-left" action="/product/userQueryproduct" role="search">
+                    <form class="navbar-form navbar-left" action="/product/userqueryproduct" role="search">
                         品牌
                         <div class="form-group">
                             <input type="text" name="pinpai" class="form-control"/>
@@ -40,12 +40,12 @@
                         <div class="form-group">
                             <input type="text" name="type" class="form-control"/>
                         </div>
-                        <button type="submit" class="btn btn-default">查找</button>
+                        <button type="submit" class="btn btn-default">Submit</button>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
 
                         <li>
-                            <a href="">个人积分：${num}</a>
+                            <a href="">个人积分：${zero}</a>
                         </li>
 
                         <li>

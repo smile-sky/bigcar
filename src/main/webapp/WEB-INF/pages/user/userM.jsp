@@ -59,8 +59,7 @@
                                 ${us.address}
                         </td>
                         <td>
-                                <%--${us.sex}--%>
-                                ${us.sex==1?'男':'女'}
+                                ${us.sex}
                         </td>
                         <td>
                             <a class="btn btn-primary" style="margin-right:10px;" href="/user/delete?id=${us.user_id}">删除</a>

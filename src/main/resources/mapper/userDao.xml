@@ -39,11 +39,15 @@
         insert into t_user(username,password,sex,phone,address)values(#{username},#{password},#{sex},#{phone},#{address});
     </insert>
 
-
     <!--查看积分表的积分-->
-    <select id="insertNum" resultType="com.carshop.domain.Num">
-        select * from t_number where user_id=#{user_id}
+    <select id="selectNum1" resultType="Integer">
+        select sum(number) from t_number where user_id=#{user_id}
     </select>
+
+    <!--注册用户时候自动添加一条积分记录的模块-->
+    <insert id="insertZero">
+        insert into t_number (user_id,number)VALUES(#{user_id},0)
+    </insert>
 
 </mapper>
 

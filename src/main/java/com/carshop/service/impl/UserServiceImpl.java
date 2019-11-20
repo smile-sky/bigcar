@@ -54,7 +54,16 @@ public class UserServiceImpl implements UserService {
      * 查看用户的积分
      */
     @Override
-    public Num insertNum(Integer user_id) {
-        return ud.insertNum(user_id);
+    public Integer selectNum(Integer user_id) {
+        return ud.selectNum1(user_id);
     }
+
+    /**
+     *
+     * 注册时候添加积分记录
+     */
+    public Integer insertZero(Integer user_id){
+        return ud.insertZero(user_id);
+    }
+
 }

@@ -34,7 +34,7 @@
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
         <property name="jdbcUrl" value="jdbc:mysql:///bigcar?useUnicode=true&amp;characterEncoding=UTF-8"/>
         <property name="user" value="root"/>
-        <property name="password" value="123456"/>
+        <property name="password" value=""/>
     </bean>
     <!--配置Mapper扫描器，扫描所有dao接口-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">

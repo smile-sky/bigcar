@@ -31,6 +31,13 @@ public interface UserDao {
     /**
      * 用户查看积分表
      */
-    Num insertNum(Integer user_id);
+    Integer selectNum1(@Param("user_id") Integer user_id);
+
+    /**
+     * 注册用户的时候自动添加一条积分为0的积分表记录
+     */
+
+    Integer insertZero(Integer user_id);
+
 
 }

@@ -30,17 +30,17 @@
     <mvc:annotation-driven/>
 
     <!--拦截器配置-->
-    <!--<mvc:interceptors>
-        <mvc:interceptor>
-            <mvc:mapping path="/xxxx/**"/>
-            <bean class="com.carshop.interceptor.LoginInterceptor"/>
-        </mvc:interceptor>
-        <mvc:interceptor>
-            <mvc:mapping path="/xxx/**"/>
-            <bean class="com.carshop.interceptor.AdminInterceptor"/>
-        </mvc:interceptor>
-    </mvc:interceptors>-->
 
+    <!--<mvc:interceptors>-->
+           <!--<mvc:interceptor>-->
+               <!--<mvc:mapping path="/xxxx/**"/>-->
+               <!--<bean class="com.carshop.interceptor.LoginInterceptor"/>-->
+           <!--</mvc:interceptor>-->
+           <!--<mvc:interceptor>-->
+               <!--<mvc:mapping path="/xxx/**"/>-->
+               <!--<bean class="com.carshop.interceptor.AdminInterceptor"/>-->
+           <!--</mvc:interceptor>-->
+       <!--</mvc:interceptors>-->
     <mvc:default-servlet-handler/>
 
     <mvc:interceptors>
