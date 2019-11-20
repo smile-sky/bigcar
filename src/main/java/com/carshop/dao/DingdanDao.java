@@ -19,6 +19,7 @@ public interface DingdanDao {
      */
     List<Dingdan> queryDingdan(@Param("product_id") Integer product_id, @Param("user_id") Integer user_id);
 
+
     List<Dingdan> queryDingdan1(@Param("sellerid") Integer sellerid);
 
     /**

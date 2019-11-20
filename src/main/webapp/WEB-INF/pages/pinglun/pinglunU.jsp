@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: 11466
@@ -47,8 +48,11 @@
                         <td>
                                 ${dingdan.product_id}
                         </td>
+                            <%--                        <td>
+                                                            ${dingdan.order_time}
+                                                    </td>--%>
                         <td>
-                                ${dingdan.order_time}
+                            <fmt:formatDate value="${dingdan.order_time}"/>
                         </td>
                         <td>
                                 ${dingdan.statu==0?"运输中":"已到货"}

@@ -1,6 +1,7 @@
 package com.carshop.controller;
 
 import com.carshop.domain.Product;
+import com.carshop.domain.Seller;
 import com.carshop.domain.Tell;
 import com.carshop.domain.User;
 import com.carshop.service.CollectService;
@@ -39,12 +40,26 @@ public class ProductController {
     }
 
     @RequestMapping("/queryproduct5")
-    public String queryproduct5(String pinpai, String type, Integer product_id, Model model) {
+    public String queryproduct5(String pinpai, String type, Model model, HttpSession session) {
+        Seller seller = (Seller) session.getAttribute("seller");
+        Integer product_id = seller.getSellerid();
         List<Product> product = productService.queryproduct5(pinpai, type, product_id);
         model.addAttribute("product", product);
         String a;
         if (product != null) {
             a = "Product/productS";
+        } else a = "error";
+        return a;
+    }
+
+
+    @RequestMapping("userQueryproduct")
+    public String userQueryproduct(String pinpai, String type, Model model) {
+        List<Product> product = productService.userQueryproduct(pinpai, type);
+        model.addAttribute("product", product);
+        String a;
+        if (product != null) {
+            a = "bigcar";
         } else a = "error";
         return a;
     }
@@ -82,6 +97,18 @@ public class ProductController {
             a = "reviseProduct";
         }
         else a="error";
+        return a;
+    }
+
+    //卖家根据商品ID查询
+    @RequestMapping("/selectproductid2")
+    public String selectproductid1(Integer product_id, Model d) {
+        Product rows = productService.selectproductid(product_id);
+        String a;
+        if (rows != null) {
+            d.addAttribute("product", rows);
+            a = "reviseProduct1";
+        } else a = "error";
         return a;
     }
 
@@ -125,7 +152,7 @@ public class ProductController {
         model.addAttribute("ID",product_id);
         String a;
         if (model!=null){
-            a="success";
+            a = "redirect:/product/queryproduct5";
         }
         else a="error";
         return a;
@@ -141,6 +168,21 @@ public class ProductController {
             a = "redirect:/product/queryproduct";
         }
         else a="error";
+        return a;
+    }
+
+    //商品修改
+    @RequestMapping("/updateproduct1")
+    public String updateproduct1(Product product, HttpSession session) {
+        int rows = productService.updateproduct(product);
+
+        Seller seller = (Seller) session.getAttribute("seller");
+        Integer x = seller.getSellerid();
+        String y = x.toString();
+        String a;
+        if (product != null) {
+            a = "redirect:/product/queryproduct5?product_id=" + y + "";
+        } else a = "error";
         return a;
     }
 

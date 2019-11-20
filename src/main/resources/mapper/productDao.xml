@@ -30,8 +30,25 @@
         </where>
     </select>
 
+    <select id="userqueryproduct" resultType="com.carshop.domain.Product">
+        select beizhu,price,type,pinpai,color,check_list,product_id from t_product
+        <where>
+            <if test="pinpai!=null and pinpai!=''">
+                pinpai=#{pinpai}
+            </if>
+            <if test="type!=null and type!=''">
+                and type=#{type}
+            </if>
+            and check_list=1
+        </where>
+    </select>
+
     <select id="selectall" resultType="com.carshop.domain.Product">
         select *from t_product
+    </select>
+
+    <select id="userselectall" resultType="com.carshop.domain.Product">
+        select *from t_product where check_list=1
     </select>
 
     <!--卖家查找上架车辆-->

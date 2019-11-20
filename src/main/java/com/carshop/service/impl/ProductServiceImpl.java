@@ -19,6 +19,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public List<Product> userQueryproduct(String pinpai, String type) {
+        return productDao.userqueryproduct(pinpai, type);
+    }
+
+    @Override
     public List<Product> queryproduct5(String pinpai, String type, Integer product_id) {
         return productDao.queryproduct5(pinpai, type, product_id);
     }
@@ -31,6 +36,11 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> selectall() {
         return productDao.selectall();
+    }
+
+    @Override
+    public List<Product> userSelectall() {
+        return productDao.userselectall();
     }
 
     //卖家根据商品ID查询

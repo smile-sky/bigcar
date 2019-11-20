@@ -9,6 +9,8 @@ public interface ProductDao {
     //（买家）商品按商品品牌跟型号查询
     List<Product> queryproduct(@Param("pinpai") String pinpai, @Param("type") String type);
 
+    List<Product> userqueryproduct(@Param("pinpai") String pinpai, @Param("type") String type);
+
     List<Product> queryproduct5(@Param("pinpai") String pinpai, @Param("type") String type, @Param("product_id") Integer product_id);
 
     //（卖家查询）商品按商家ID查询
@@ -32,4 +34,6 @@ public interface ProductDao {
     Integer stopproduct(Integer product_id);
 
     List<Product> selectall();
+
+    List<Product> userselectall();
 }

@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: 11466
@@ -82,7 +83,8 @@
                         <div class="alert alert-success alert-dismissable">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                             <h4>
-                                用户ID：${tell.user_id} 评论时间：${tell.tell_time}
+                                    <%--用户ID：${tell.user_id} 评论时间：${tell.tell_time}--%>
+                                用户ID：${tell.user_id} 评论时间：<fmt:formatDate value="${tell.tell_time}"/>
                             </h4> <strong>${tell.tell}</strong>
                         </div>
                     </c:forEach>

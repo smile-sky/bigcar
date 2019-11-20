@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import java.util.List;
 
 @Controller
@@ -34,24 +35,25 @@ public class SellerController {
 
     //卖家登录的方法
     @RequestMapping("/SellerLogin")
-    public String login(String username, String password, Integer lei, HttpSession session, Model model) {
+    public String login(String username, String password, Integer lei, HttpServletRequest session, Model model) {
         String a;
         if(lei==0){
             Admin admin=adminService.login(username,password);
             if (admin!=null){
                 a="admin";
-                session.setAttribute("admin",admin);
+                session.getSession().setAttribute("admin", admin);
             }else a="error";
             return a;
         }
         if(lei==1){
             User user=userService.login(username,password);
             if (user!=null){
-                session.setAttribute("user", user);
-                List<Product> product = productService.selectall();
+                //session.setAttribute("user", user);
+                session.getSession().setAttribute("user", user);
+                List<Product> product = productService.userSelectall();
 
                 Num num = userService.insertNum(user.getUser_id());
-                session.setAttribute("num", num.getNumber());
+                //session.setAttribute("num", num.getNumber());
 
                 model.addAttribute("product", product);
 
@@ -68,7 +70,8 @@ public class SellerController {
             Seller seller=sellerService.login(username,password);
             if (seller!=null){
                 a = "seller";
-                session.setAttribute("seller",seller);
+                // session.setAttribute("seller",seller);
+                session.getSession().setAttribute("seller", seller);
             }else a="error";
             return a;
         }
@@ -118,6 +121,22 @@ public class SellerController {
       }
       return a;
   }
+
+
+    // 按条件（用户名）查询
+    @RequestMapping("/sellerselect3")
+    public String select2(Integer sellerid, Model d) {
+        Seller seller = sellerService.selectseller(sellerid);
+        String a;
+        if (seller != null) {
+            a = "reviseSeller1";
+            d.addAttribute("seller", seller);
+        } else {
+            a = "error";
+        }
+        return a;
+    }
+
   @RequestMapping("/insertseller")
   public String insertseller(Seller seller){
    int row=sellerService.insertseller(seller);
@@ -156,5 +175,17 @@ public class SellerController {
       }
       return a;
   }
+
+    @RequestMapping("/updateseller1")
+    public String updateseller1(Seller seller) {
+        int rows = sellerService.updateseller(seller);
+        String a;
+        if (seller != null) {
+            a = "redirect:/seller/sellerselect3?sellerid=" + seller.getSellerid() + "";
+        } else {
+            a = "error";
+        }
+        return a;
+    }
 
 }

@@ -18,7 +18,7 @@
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
-            <form class="form-search" action="/product/queryproduct1">
+            <form class="form-search" action="/product/queryproduct5">
                 品牌
                 <input class="input-medium search-query" type="text" name="pinpai"/>
                 车型
@@ -71,12 +71,13 @@
                         </td>
 
                         <td>
-                                ${product.check_list}
+                                ${product.check_list!=1?"未审核":"已审核"}
                         </td>
                         <td>
 
 
-                            <a class="btn btn-primary" href="/product/selectproductid?product_id=${product.product_id}">修改</a>
+                            <a class="btn btn-primary"
+                               href="/product/selectproductid2?product_id=${product.product_id}">修改</a>
                             <a class="btn btn-primary"
                                href="/product/deleteproduct?product_id=${product.product_id}">下架</a>
                             <a class="btn btn-primary" href="/product/deleteproduct?product_id=${product.product_id}">查看评论</a>
