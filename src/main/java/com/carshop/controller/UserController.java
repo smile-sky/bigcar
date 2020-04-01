@@ -31,7 +31,7 @@ public class UserController {
     @RequestMapping("/loginHandle")
     public String userLogin(String username, String password) {
         String a;
-        User user = us.login(username, password);
+        User user = us.login(username, password);     
         if (user == null) {
             a = "error";
         } else {
